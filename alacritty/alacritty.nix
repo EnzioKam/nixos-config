@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       env.TERM = "alacritty";
+      import = [ "/home/enziokam/.config/nixpkgs/alacritty/theme/catppuccin-mocha.yml" ];
       window = {
         padding = {
 	  x = 15;
