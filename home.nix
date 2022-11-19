@@ -6,7 +6,8 @@
     ./zsh.nix
     ./starship.nix
     ./alacritty/alacritty.nix
-    ./sway.nix
+    ./sway/sway.nix
+    ./sway/i3status-rust.nix
   ];
 
   # Home Manager needs a bit of information about you and the

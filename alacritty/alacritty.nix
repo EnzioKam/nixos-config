@@ -1,11 +1,13 @@
 {pkgs, ...}:
 
 {
+  xdg.configFile."alacritty/theme.toml".source = ./theme/catppuccin-mocha.yml;
+
   programs.alacritty = {
     enable = true;
     settings = {
       env.TERM = "alacritty";
-      import = [ "/home/enziokam/.config/nixpkgs/alacritty/theme/catppuccin-mocha.yml" ];
+      import = [ "~/.config/alacritty/theme.toml" ];
       window = {
         padding = {
 	  x = 15;

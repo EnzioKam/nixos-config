@@ -1,31 +1,14 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 
 {
-  programs.i3status-rust = {
-    enable = true;
-    bars = {
-      top = {
-        blocks = [
-	  { block = "disk_space"; interval = 60; format = "{icon} {available}"; }
-	  { block = "memory"; format_mem = "{mem_used_percents}"; format_swap = "{swap_used_percents}"; }
-	  { block = "cpu"; }
-	  { block = "sound"; } 
-	  { block = "backlight"; }
-	  { block = "networkmanager"; on_click = "alacritty -e nmtui"; ap_format = "{ssid^10}"; device_format = "{icon}{ap}"; }
-	  { block = "battery"; format = "{percentage:6#100} {percentage} {time}"; }
-	  { block = "time"; format = "%a %d/%m %R"; interval = 60; }
-	];
-	icons = "material-nf";
-      };
-    };
-  };
-
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
+      floating.border = 4;
+      window.border = 4;
       menu = "wofi --show run";
       fonts = {
         names = ["JetBrainsMono Nerd Font"];
@@ -43,13 +26,17 @@
 	  size = 12.0;
 	};
 	trayOutput = "*";
+	colors = let colorScheme = import ../catppuccin.nix; in {
+	  background = "${colorScheme.background}";
+          focusedWorkspace = { background = "${colorScheme.color9}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
+          activeWorkspace = { background = "${colorScheme.foreground}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
+          inactiveWorkspace = { background = "${colorScheme.color7}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
+	};
       }];
       startup = [
-        { command = "exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"; }
-	{ command = "exec systemctl --user import-environment"; }
-	{ command = "exec systemctl --user start sway-session.target";}
-	{ command = "exec autotiling";}
-	{ command = "exec sleep 5; systemctl --user start kanshi.service";}
+	{ command = "systemctl --user import-environment"; }
+	{ command = "autotiling";}
+	{ command = "sleep 5; systemctl --user start kanshi.service";}
       ];
       assigns = {
 	"2" = [ { app_id = "firefox"; } ];
