@@ -3,6 +3,8 @@
 {
 
   imports = [
+    ./zsh.nix
+    ./starship.nix
     ./alacritty.nix
     ./sway.nix
   ];
@@ -24,6 +26,7 @@
     wofi
     brightnessctl
     pulseaudio
+    autotiling
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
   ];
 
@@ -87,11 +90,6 @@
     enable = true;
     userName = "EnzioKam";
     userEmail = "enziokamhh@gmail.com";
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
   };
 
   programs.neovim = {

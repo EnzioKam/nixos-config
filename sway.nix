@@ -6,15 +6,16 @@
     bars = {
       top = {
         blocks = [
-	  { block = "battery"; interval = 10; format = "{percentage:6#100} {percentage} {time}"; }
-	  { block = "backlight"; }
-	  { alias = "/"; block = "disk_space"; info_type = "available"; interval = 60; path = "/"; unit = "GB"; }
-	  { block = "memory"; display_type = "memory"; format_mem = "{mem_used_percents}"; format_swap = "{swap_used_percents}"; }
-	  { block = "cpu"; interval = 1; }
-	  { block = "load"; format = "{1m}"; interval = 1; }
+	  { block = "disk_space"; interval = 60; format = "{icon} {available}"; }
+	  { block = "memory"; format_mem = "{mem_used_percents}"; format_swap = "{swap_used_percents}"; }
+	  { block = "cpu"; }
 	  { block = "sound"; } 
-	  { block = "time"; format = "%a %d/%m %R"; interval = 60;}
+	  { block = "backlight"; }
+	  { block = "networkmanager"; on_click = "alacritty -e nmtui"; ap_format = "{ssid^10}"; device_format = "{icon}{ap}"; }
+	  { block = "battery"; format = "{percentage:6#100} {percentage} {time}"; }
+	  { block = "time"; format = "%a %d/%m %R"; interval = 60; }
 	];
+	icons = "material-nf";
       };
     };
   };
@@ -39,7 +40,7 @@
 	position = "top";
 	fonts = {
 	  names = ["JetBrainsMono Nerd Font"];
-	  size = 10.0;
+	  size = 12.0;
 	};
 	trayOutput = "*";
       }];
@@ -47,6 +48,7 @@
         { command = "exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"; }
 	{ command = "exec systemctl --user import-environment"; }
 	{ command = "exec systemctl --user start sway-session.target";}
+	{ command = "exec autotiling";}
       ];
       assigns = {
 	"2" = [ { app_id = "firefox"; } ];
@@ -57,6 +59,8 @@
 	"${modifier}+b" = "exec firefox";
 	"${modifier}+Shift+r" = "reload";
 	"${modifier}+space" = "floating toggle";
+	"Mod1+Control+Right" = "workspace next";
+	"Mod1+Control+Left" = "workspace prev";
 	"XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
 	"XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
 	"XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
