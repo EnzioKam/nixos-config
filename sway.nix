@@ -49,6 +49,7 @@
 	{ command = "exec systemctl --user import-environment"; }
 	{ command = "exec systemctl --user start sway-session.target";}
 	{ command = "exec autotiling";}
+	{ command = "exec sleep 5; systemctl --user start kanshi.service";}
       ];
       assigns = {
 	"2" = [ { app_id = "firefox"; } ];
@@ -59,6 +60,8 @@
 	"${modifier}+b" = "exec firefox";
 	"${modifier}+Shift+r" = "reload";
 	"${modifier}+space" = "floating toggle";
+	"${modifier}+p" = "move workspace to output right";
+	"${modifier}+o" = "move workspace to output left";
 	"Mod1+Control+Right" = "workspace next";
 	"Mod1+Control+Left" = "workspace prev";
 	"XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";

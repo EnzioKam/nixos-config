@@ -5,7 +5,7 @@
   imports = [
     ./zsh.nix
     ./starship.nix
-    ./alacritty.nix
+    ./alacritty/alacritty.nix
     ./sway.nix
   ];
 
@@ -27,6 +27,11 @@
     brightnessctl
     pulseaudio
     autotiling
+    bat
+    fzf
+    fd
+    ripgrep
+    wl-mirror
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
   ];
 
@@ -102,6 +107,10 @@
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
+  };
+
+  services.kanshi = {
+    enable = true;
   };
 
 }
