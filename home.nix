@@ -8,6 +8,7 @@
     ./alacritty/alacritty.nix
     ./sway/sway.nix
     ./sway/i3status-rust.nix
+    ./firefox/firefox.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -19,20 +20,24 @@
 
   # Packages that should be intalled to the user profile
   home.packages = with pkgs; [
-    bottom
-    gnumake
-    neofetch
-    wl-clipboard
-    mako
-    wofi
-    brightnessctl
-    pulseaudio
     autotiling
     bat
-    fzf
+    bottom
+    brightnessctl
     fd
+    fzf
+    gnumake
+    mako
+    neofetch
+    networkmanagerapplet
+    pulseaudio
     ripgrep
+    unzip
+    wl-clipboard
     wl-mirror
+    wofi
+    zip
+    swaybg
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
   ];
 
@@ -59,39 +64,6 @@
     enableAliases = true;
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-      forceWayland = true;
-    };
-    profiles.default = {
-      id = 0;
-      name = "Default";
-      settings = {
-        # Disable all sorts of telemetry
-        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-	"browser.newtabpage.activity-stream.telemetry" = false;
-	"browser.ping-centre.telemetry" = false;
-	"toolkit.telemetry.archive.enabled" = false;
-	"toolkit.telemetry.bhrPing.enabled" = false;
-	"toolkit.telemetry.enabled" = false;
-	"toolkit.telemetry.firstShutdownPing.enabled" = false;
-	"toolkit.telemetry.hybridContent.enabled" = false;
-	"toolkit.telemetry.newProfilePing.enabled" = false;
-	"toolkit.telemetry.reportingpolicy.firstRun" = false;
-	"toolkit.telemetry.shutdownPingSender.enabled" = false;
-	"toolkit.telemetry.unified" = false;
-	"toolkit.telemetry.updatePing.enabled" = false;
-
-	# As well as Firefox 'experiments'
-	"experiments.activeExperiment" = false;
-	"experiments.enabled" = false;
-	"experiments.supported" = false;
-	"network.allow-experiments" = false;
-      };
-    };
-  };
-
   programs.git = {
     enable = true;
     userName = "EnzioKam";
@@ -102,6 +74,18 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.catppuccin-gtk;
+      name = "Catpuccin-Mocha-Lavender";
+    };
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors;
+      name = "Catpuccin-Mocha-Lavender";
+    };
   };
 
   services.gpg-agent = {

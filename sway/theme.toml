@@ -8,6 +8,6 @@ warning_bg = "#f9e2af" # color3
 warning_fg = "#45475a" # color0
 critical_bg = "#f38ba8" # color1
 critical_fg = "#45475a" # color0
-separator = ""
+separator = "\ue0b2"
 separator_bg = "auto"
 separator_fg = "auto"

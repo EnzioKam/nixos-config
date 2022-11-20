@@ -62,6 +62,11 @@
           xkb_options = "ctrl:swapcaps";
 	};
       };
+      output = {
+        "*" = {
+          bg = "~/.config/nixpkgs/wallpaper.png fill";
+	};
+      };
     };
   };
 }

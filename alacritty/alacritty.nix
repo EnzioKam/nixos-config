@@ -8,6 +8,9 @@
     settings = {
       env.TERM = "alacritty";
       import = [ "~/.config/alacritty/theme.toml" ];
+      key_bindings = [
+        { key = "Return"; mods = "Control|Shift"; action = "SpawnNewInstance"; }
+      ];
       window = {
         padding = {
 	  x = 15;
