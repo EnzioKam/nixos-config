@@ -10,9 +10,6 @@
       id = 0;
       name = "Default";
       isDefault = true;
-      search = {
-        default = "DuckDuckGo";
-      };
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
@@ -127,7 +124,6 @@
 	"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       userChrome = ''
-	${builtins.readFile ./chrome/protonfix.css}
 	${builtins.readFile ./chrome/findbar.css}
 	${builtins.readFile ./chrome/megabar.css}
 	${builtins.readFile ./chrome/window_control_placeholder_support.css}
@@ -137,7 +133,6 @@
 	  padding: 6px 4px 4px 6px !important;
 	}
       '';
-      userContent = builtins.readFile ./chrome/userContent.css;
     };
   };
 
