@@ -57,6 +57,11 @@
 	"XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s +5%";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 5%-";
       };
+      input = {
+        "1:1:AT_Translated_Set_2_keyboard" = {
+          xkb_options = "ctrl:swapcaps";
+	};
+      };
     };
   };
 }

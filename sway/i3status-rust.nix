@@ -15,6 +15,7 @@
 	  { block = "backlight"; }
 	  { block = "networkmanager"; on_click = "alacritty -e nmtui"; ap_format = "{ssid^10}"; device_format = "{icon}{ap}"; }
 	  { block = "battery"; format = "{percentage:6#100} {percentage} {time}"; }
+	  { block = "temperature"; collapsed = false; format = "{max}"; chip = "*-isa-*"; interval = 10; }
 	  { block = "time"; format = "%a %d/%m %R"; interval = 60; }
 	];
 	icons = "material-nf";
