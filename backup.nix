@@ -26,7 +26,6 @@
     brightnessctl
     fd
     fzf
-    glib
     gnumake
     mako
     neofetch
@@ -40,6 +39,7 @@
     wl-mirror
     wofi
     zip
+    glib
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
   ];
 
@@ -81,26 +81,14 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Purple-Dark";
       package = pkgs.catppuccin-gtk;
+      name = "Catpuccin-Mocha-Lavender";
     };
-    iconTheme = {
-      name = "Papirus-Dark-Maia";
-      package = pkgs.papirus-maia-icon-theme;
-    };
-     gtk3.extraConfig = {
-       gtk-application-prefer-dark-theme = true;
-       # gtk-key-theme-name    = "Emacs";
-       gtk-icon-theme-name   = "Papirus-Dark-Maia";
-       gtk-cursor-theme-name = "capitaine-cursors";
-     };
-  };
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      # gtk-key-theme = "Emacs";
-      cursor-theme = "Capitaine Cursors";
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
     };
   };
+
   xdg.systemDirs.data = [
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"

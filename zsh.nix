@@ -8,6 +8,10 @@
         exec sway
       fi
     '';
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
     prezto = {
       enable = true;
       caseSensitive = true;
