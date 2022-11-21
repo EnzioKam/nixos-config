@@ -7,15 +7,21 @@
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
-      floating.border = 4;
+      floating = {
+        border = 4;
+	criteria = [
+          { app_id = "pavucontrol"; }
+          { app_id = "nm-connection-editor"; }
+	];
+      };
       window.border = 4;
-      menu = "wofi --show run";
+      menu = "rofi -show drun";
       fonts = {
         names = ["JetBrainsMono Nerd Font"];
 	size = 12.0;
       };
       gaps = {
-        inner = 20;
+        inner = 15;
       };
       bars = [{
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
@@ -35,8 +41,9 @@
       }];
       startup = [
 	{ command = "systemctl --user import-environment"; }
-	{ command = "autotiling";}
-	{ command = "sleep 5; systemctl --user start kanshi.service";}
+	{ command = "autotiling"; }
+	{ command = "sleep 5; systemctl --user start kanshi.service"; }
+	{ command = "workstyle &> /tmp/workstyle.log"; }
       ];
       assigns = {
 	"2" = [ { app_id = "firefox"; } ];

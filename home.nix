@@ -9,6 +9,7 @@
     ./sway/sway.nix
     ./sway/i3status-rust.nix
     ./firefox/firefox.nix
+    ./rofi/rofi.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -28,20 +29,26 @@
     fzf
     glib
     gnumake
-    mako
+    imv
     neofetch
     networkmanagerapplet
     pavucontrol
     pulseaudio
     ripgrep
+    sway-contrib.grimshot
     swaybg
+    swayr
+    sysfsutils
     unzip
     wl-clipboard
     wl-mirror
-    wofi
+    workstyle
+    xdg-utils
     zip
-    (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
+    (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
+
+  xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml; 
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -72,6 +79,11 @@
     userEmail = "enziokamhh@gmail.com";
   };
 
+  programs.mako = {
+    enable = true;
+    font = "JetBrainsMono Nerd Font 10";
+  };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -88,17 +100,19 @@
       name = "Papirus-Dark-Maia";
       package = pkgs.papirus-maia-icon-theme;
     };
-     gtk3.extraConfig = {
-       gtk-application-prefer-dark-theme = true;
-       # gtk-key-theme-name    = "Emacs";
-       gtk-icon-theme-name   = "Papirus-Dark-Maia";
-       gtk-cursor-theme-name = "capitaine-cursors";
-     };
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Lavender";
+      package = pkgs.catppuccin-cursors;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-icon-theme-name = "Papirus-Dark-Maia";
+      gtk-cursor-theme-name = "Catppuccin-Mocha-Lavender";
+    };
   };
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      # gtk-key-theme = "Emacs";
-      cursor-theme = "Capitaine Cursors";
+      cursor-theme = "Catppuccin-Mocha-Lavender";
     };
   };
   xdg.systemDirs.data = [
