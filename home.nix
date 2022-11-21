@@ -37,7 +37,6 @@
     ripgrep
     sway-contrib.grimshot
     swaybg
-    swayr
     sysfsutils
     unzip
     wl-clipboard
@@ -48,7 +47,7 @@
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
 
-  xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml; 
+  xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
