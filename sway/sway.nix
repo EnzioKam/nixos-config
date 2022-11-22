@@ -7,13 +7,7 @@
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
-      floating = {
-        border = 4;
-	criteria = [
-          { app_id = "pavucontrol"; }
-          { app_id = "nm-connection-editor"; }
-	];
-      };
+      floating.border = 4;
       window.border = 4;
       menu = "rofi -show drun";
       fonts = {
@@ -47,6 +41,11 @@
       ];
       assigns = {
 	"2" = [ { app_id = "firefox"; } ];
+	"4" = [ { app_id = "qpdfview.local."; } ];
+        "5" = [
+	  { app_id = "pavucontrol"; }
+          { app_id = "nm-connection-editor"; }
+	];
       };
       keybindings = pkgs.lib.mkOptionDefault {
         "${modifier}+q" = "kill";

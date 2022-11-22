@@ -12,6 +12,9 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
+    shellAliases = {
+      mirror = "wl-mirror eDP-1 & exit";
+    };
     prezto = {
       enable = true;
       caseSensitive = true;

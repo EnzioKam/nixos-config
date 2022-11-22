@@ -3,13 +3,14 @@
 {
 
   imports = [
-    ./zsh.nix
-    ./starship.nix
     ./alacritty/alacritty.nix
-    ./sway/sway.nix
-    ./sway/i3status-rust.nix
     ./firefox/firefox.nix
+    ./i3-focus-last/i3-focus-last.nix
     ./rofi/rofi.nix
+    ./starship.nix
+    ./sway/i3status-rust.nix
+    ./sway/sway.nix
+    ./zsh.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -34,6 +35,7 @@
     networkmanagerapplet
     pavucontrol
     pulseaudio
+    qpdfview
     ripgrep
     rofi-power-menu
     sway-contrib.grimshot

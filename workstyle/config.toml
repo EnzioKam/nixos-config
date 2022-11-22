@@ -32,6 +32,8 @@
 ".pdf" = ""
 "volume control" = "\uf028"
 "network connections" = "\uf1eb"
+"imv" = ""
+"qpdfview" = ""
 
 [other]
 fallback_icon = "\ueb32"
