@@ -44,7 +44,9 @@
     wl-mirror
     workstyle
     xdg-utils
+    xfce.thunar
     zip
+    (callPackage ./i3-focus-last/default.nix {})
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
 

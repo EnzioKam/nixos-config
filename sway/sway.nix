@@ -57,7 +57,7 @@
 	"${modifier}+space" = "floating toggle";
 	"${modifier}+p" = "move workspace to output right";
 	"${modifier}+o" = "move workspace to output left";
-	"Mod1+Tab" = "exec env RUST_BACKTRACE=1 swayr switch-window >> /tmp/swayr.log 2>&1";
+	"Mod1+Tab" = "exec i3-focus-last menu";
 	"Mod1+Control+Right" = "workspace next";
 	"Mod1+Control+Left" = "workspace prev";
 	"XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
