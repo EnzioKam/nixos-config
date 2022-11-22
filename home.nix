@@ -35,6 +35,7 @@
     pavucontrol
     pulseaudio
     ripgrep
+    rofi-power-menu
     sway-contrib.grimshot
     swaybg
     sysfsutils

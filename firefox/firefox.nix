@@ -74,8 +74,8 @@
         "extensions.shield-recipe-client.api_url" = "";
         "extensions.shield-recipe-client.enabled" = false;
         "extensions.webservice.discoverURL" = "";
-        "media.autoplay.default" = 0;
-        "media.autoplay.enabled" = true;
+        "media.autoplay.default" = 1;
+        "media.autoplay.enabled" = false;
         "media.eme.enabled" = false;
         "media.gmp-widevinecdm.enabled" = false;
         "media.navigator.enabled" = false;

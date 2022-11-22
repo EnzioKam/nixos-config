@@ -50,7 +50,8 @@
       };
       keybindings = pkgs.lib.mkOptionDefault {
         "${modifier}+q" = "kill";
-        "${modifier}+Shift+q" = "exec swaynag -t warning -m 'Exit sway?' -b 'Yes' 'swaymsg exit'";
+        "${modifier}+Shift+q" = 
+	  "exec rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout\"";
 	"${modifier}+b" = "exec firefox";
 	"${modifier}+Shift+r" = "reload";
 	"${modifier}+space" = "floating toggle";
