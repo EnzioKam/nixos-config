@@ -11,6 +11,8 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      PF_INFO = "ascii title os host kernel uptime pkgs memory wm shell palette";
+      FZF_DEFAULT_COMMAND = "fd -H";
     };
     shellAliases = {
       mirror = "wl-mirror eDP-1 & exit";

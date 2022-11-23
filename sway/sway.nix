@@ -17,6 +17,41 @@
       gaps = {
         inner = 15;
       };
+      colors = let
+	fore = "#cdd6f4";
+	back = "#1e1e2e";
+	urge = "#f38ba8";
+      in {
+        background = fore;
+	focused = {
+          border = fore;
+          background = fore;
+          text = back;
+          indicator = fore;
+          childBorder = fore;
+	};
+	focusedInactive = {
+          border = back;
+          background = back;
+          text = fore;
+          indicator = back;
+          childBorder = back;
+	};
+	unfocused = {
+          border = back;
+          background = back;
+          text = fore;
+          indicator = back;
+          childBorder = back;
+	};
+	urgent = {
+          border = urge;
+          background = urge;
+          text = fore;
+          indicator = urge;
+          childBorder = urge;
+	};
+      };
       bars = [{
         statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
       	command = "${pkgs.sway}/bin/swaybar";

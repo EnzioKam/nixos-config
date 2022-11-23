@@ -8,7 +8,9 @@
       "pavucontrol": "pavucontrol",
       "nm-connection-editor": "nm-device-wireless",
       "thunar": "Thunar",
-      "imv": "image-viewer"
+      "imv": "image-viewer",
+      "mpv": "mpv",
+      "sioyek": "qpdfview"
     }
   '';
 }

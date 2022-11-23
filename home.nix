@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     autotiling
     bat
+    blueman
     bottom
     brightnessctl
     fd
@@ -31,13 +32,18 @@
     glib
     gnumake
     imv
-    neofetch
+    julia-bin
+    libreoffice-fresh
+    mpv
     networkmanagerapplet
     pavucontrol
+    pfetch
     pulseaudio
+    python311
     qpdfview
     ripgrep
     rofi-power-menu
+    sioyek
     sway-contrib.grimshot
     swaybg
     sysfsutils
@@ -88,6 +94,15 @@
     font = "JetBrainsMono Nerd Font 10";
   };
 
+  services.kanshi = {
+    enable = true;
+  };
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -128,10 +143,6 @@
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
-  };
-
-  services.kanshi = {
-    enable = true;
   };
 
 }
