@@ -74,14 +74,6 @@
 	{ command = "sleep 5; systemctl --user start kanshi.service"; }
 	{ command = "workstyle &> /tmp/workstyle.log"; }
       ];
-      assigns = {
-	"2" = [ { app_id = "firefox"; } ];
-	"4" = [ { app_id = "qpdfview.local."; } ];
-        "5" = [
-	  { app_id = "pavucontrol"; }
-          { app_id = "nm-connection-editor"; }
-	];
-      };
       keybindings = pkgs.lib.mkOptionDefault {
         "${modifier}+q" = "kill";
         "${modifier}+Shift+q" = 
