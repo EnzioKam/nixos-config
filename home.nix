@@ -34,7 +34,6 @@
     imv
     julia-bin
     libreoffice-fresh
-    mpv
     networkmanagerapplet
     pavucontrol
     pfetch
@@ -101,6 +100,17 @@
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
+  };
+
+  programs.mpv = {
+    enable = true;
+    config = {
+      profile = "gpu-hq";
+      ao = "pipewire";
+      vo = "dmabuf-wayland";
+      hwdec = "vaapi";
+      gpu-context = "wayland";
+    };
   };
 
   programs.neovim = {
