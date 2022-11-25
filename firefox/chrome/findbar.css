@@ -9,7 +9,7 @@
     position: fixed !important;
     right: 1em;
     left: 1em;
-    min-width: 90% !important:
+    width: 50%;
     /* border: 1px solid threedshadow !important; */
 
     /* Hide the "border" at the top by removing the box-shadow and background-image */
