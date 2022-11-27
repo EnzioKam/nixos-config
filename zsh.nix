@@ -16,6 +16,7 @@
     };
     shellAliases = {
       mirror = "wl-mirror eDP-1 & exit";
+      hmu = "home-manager switch";
     };
     prezto = {
       enable = true;

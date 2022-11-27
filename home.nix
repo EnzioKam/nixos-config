@@ -23,6 +23,7 @@
   # Packages that should be intalled to the user profile
   home.packages = with pkgs; [
     autotiling
+    bashmount
     bat
     blueman
     bottom
@@ -30,6 +31,7 @@
     fd
     fzf
     glib
+    gnome.file-roller
     gnumake
     imv
     julia-bin
@@ -37,6 +39,7 @@
     networkmanagerapplet
     pavucontrol
     pfetch
+    polkit_gnome
     pulseaudio
     python311
     qpdfview
@@ -47,11 +50,14 @@
     swaybg
     sysfsutils
     unzip
+    usbutils
     wl-clipboard
     wl-mirror
     workstyle
     xdg-utils
     xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
     zip
     (callPackage ./i3-focus-last/default.nix {})
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
