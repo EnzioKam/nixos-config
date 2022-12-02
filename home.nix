@@ -48,13 +48,16 @@
     sioyek
     sway-contrib.grimshot
     swaybg
+    swaylock
     sysfsutils
+    ungoogled-chromium
     unzip
     usbutils
     wl-clipboard
     wl-mirror
     workstyle
     xdg-utils
+    xfce.exo
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-volman
@@ -64,6 +67,7 @@
   ];
 
   xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml;
+  xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=alacritty'';
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
