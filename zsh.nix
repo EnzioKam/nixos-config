@@ -23,38 +23,39 @@
       caseSensitive = true;
       color = true;
       extraModules = [
-	"attr"
-	"stat"
+        "attr"
+        "stat"
       ];
       extraFunctions = [
-	"zargs"
-	"zmv"
+        "zargs"
+        "zmv"
       ];
       pmodules = [
-	"environment"
-	"terminal"
-	"editor"
-	"history"
-	"directory"
-	"spectrum"
-	"utility"
-	"completion"
-	"syntax-highlighting"
-	"autosuggestions"
+        "environment"
+        "terminal"
+        "editor"
+        "history"
+        "directory"
+        "spectrum"
+        "utility"
+        "completion"
+        "syntax-highlighting"
+        "autosuggestions"
       ];
       utility.safeOps = false;
       syntaxHighlighting = {
         highlighters = [
-	  "main"
-	  "brackets"
-	  "pattern"
-	  "line"
-	  "root"
-	];
-	pattern = {
+          "main"
+          "brackets"
+          "pattern"
+          "line"
+          "root"
+        ];
+        pattern = {
           "rm*-rf*" = "fg=red,bold,underline";
-	};
+        };
       };
     };
   };
 }
+

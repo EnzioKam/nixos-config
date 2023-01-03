@@ -6,6 +6,7 @@
     ./alacritty/alacritty.nix
     ./firefox/firefox.nix
     ./i3-focus-last/i3-focus-last.nix
+    ./nvim/nvim.nix
     ./rofi/rofi.nix
     ./starship.nix
     ./sway/i3status-rust.nix
@@ -53,6 +54,7 @@
     ungoogled-chromium
     unzip
     usbutils
+    wdisplays
     wl-clipboard
     wl-mirror
     workstyle

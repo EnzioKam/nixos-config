@@ -124,16 +124,16 @@
 	"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       userChrome = ''
-	${builtins.readFile ./chrome/findbar.css}
-	${builtins.readFile ./chrome/megabar.css}
-	${builtins.readFile ./chrome/window_control_placeholder_support.css}
-	${builtins.readFile ./chrome/linux_gtk_window_control_patch.css}
-	${builtins.readFile ./chrome/tabs_on_bottom.css}
-	#TabsToolbar {
-	  padding: 6px 4px 4px 6px !important;
-	}
+	      ${builtins.readFile ./chrome/findbar.css}
+	      ${builtins.readFile ./chrome/megabar.css}
+	      ${builtins.readFile ./chrome/window_control_placeholder_support.css}
+	      ${builtins.readFile ./chrome/linux_gtk_window_control_patch.css}
+	      ${builtins.readFile ./chrome/tabs_on_bottom.css}
+	      #TabsToolbar {
+	        padding: 6px 4px 4px 6px !important;
+	      }
       '';
     };
   };
-
 }
+
