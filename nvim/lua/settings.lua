@@ -5,19 +5,43 @@ local opt = vim.opt  -- to set options
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+g.latex_to_unicode_auto = 1
 
 require("catppuccin").setup({
   integrations = {
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
     indent_blankline = {
       enabled = true,
-      colored_indent_levels = false
+      colored_indent_levels = true
     }
   }
 })
 require("gitsigns").setup()
-require("nvim_comment").setup({
-  line_mapping = ";;",
-  operator_mapping = ";"
+require("indent_blankline").setup {
+  show_current_context = true,
+  show_current_context_start = true,
+}
+require("nvim-treesitter.configs").setup({
+  ensure_installed = {
+    "julia",
+    "python",
+    "java",
+    "nix",
+    "lua",
+    "markdown",
+    "latex"
+  },
+  highlight = {enable = true}
+})
+require("Comment").setup({
+  toggler = {
+    line = ';;'
+  },
+  opleader = {
+    line = ';'
+  }
 })
 require("nvim-tree").setup()
 require('lualine').setup {
@@ -30,6 +54,7 @@ require("nvim-autopairs").setup()
 require("FTerm").setup({
   dimensions = {height = 0.6, width = 0.6}
 })
+require('colorizer').setup()
 
 cmd.colorscheme "catppuccin"
 

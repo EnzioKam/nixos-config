@@ -2,6 +2,7 @@
 
 {
   xdg.configFile."nvim/lua/settings.lua".source = ./lua/settings.lua ;
+  xdg.configFile."nvim/lua/coc.lua".source = ./lua/coc.lua ;
   xdg.configFile."nvim/lua/bindings.lua".source = ./lua/bindings.lua ;
 
   programs.neovim = {
@@ -11,24 +12,34 @@
 
     extraConfig = ''
       luafile $HOME/.config/nvim/lua/settings.lua
+      luafile $HOME/.config/nvim/lua/coc.lua
       luafile $HOME/.config/nvim/lua/bindings.lua
     '';
 
+    coc = {
+      enable = true;
+      settings = {
+        "suggest.noselect" = true;
+      };
+    };
+
     plugins = with pkgs.vimPlugins; [
-      fzf-lua
       catppuccin-nvim
-      lualine-nvim
-      nvim-tree-lua
-      nvim-web-devicons
-      indent-blankline-nvim
-      vim-nix
+      comment-nvim
+      FTerm-nvim
+      fzf-lua
       gitsigns-nvim
-      plenary-nvim
-      nvim-scrollview
-      nvim-comment
+      indent-blankline-nvim
+      julia-vim
+      lualine-nvim
       nvim-autopairs
       nvim-colorizer-lua
-      FTerm-nvim
+      nvim-scrollview
+      nvim-tree-lua
+      nvim-treesitter.withAllGrammars
+      nvim-web-devicons
+      plenary-nvim
+      vim-nix
     ];
   };
 }

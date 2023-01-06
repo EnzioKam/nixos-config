@@ -125,12 +125,6 @@
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   gtk = {
     enable = true;
     theme = {

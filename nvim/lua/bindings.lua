@@ -14,7 +14,6 @@ map("n", "<leader>h", ":FzfLua oldfiles<CR>")
 map("n", "<leader>f", ":FzfLua files<CR>")
 map("n", "<leader>l", ":FzfLua blines<CR>")
 -- map("n", "<leader>e", ":LspDiagnostics 0<CR>")
--- map("n", "<C-p>", ":MarkdownPreviewToggle<CR>")
 -- map("n", "<leader>]", "<cmd>lua vim.lsp.buf.definition()<CR>",
 --     {noremap = true, silent = true})
 -- map("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>",
@@ -26,13 +25,8 @@ map("n", "<leader>l", ":FzfLua blines<CR>")
 map('n', "<leader>t", "<cmd>lua require(\"FTerm\").toggle()<CR>")
 map('t', "<leader>t", "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>")
 
-local function t(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-function _G.smart_tab()
-  return vim.fn.pumvisible() == 1 and t'<C-n>' or t'<Tab>'
-end
-map("i", "<Tab>", "v:lua.smart_tab()", {expr = true, noremap = true})
+-- Preview Markdown (COC)
+map("n", "<C-p>", ":CocCommand markdown-preview-enhanced.openPreview<CR>")
 
 -- Navigate windows
 map("n", "<C-h>", "<C-w>h", {noremap = true})
