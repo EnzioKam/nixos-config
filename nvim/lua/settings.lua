@@ -9,7 +9,9 @@ g.latex_to_unicode_auto = 1
 
 require("catppuccin").setup({
   integrations = {
+    coc_nvim = true,
     gitsigns = true,
+    markdown = true,
     nvimtree = true,
     treesitter = true,
     indent_blankline = {
