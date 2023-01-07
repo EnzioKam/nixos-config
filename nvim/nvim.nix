@@ -1,20 +1,17 @@
 {pkgs, config, ...}:
 
 {
-  xdg.configFile."nvim/lua/settings.lua".source = ./lua/settings.lua ;
-  xdg.configFile."nvim/lua/coc.lua".source = ./lua/coc.lua ;
-  xdg.configFile."nvim/lua/bindings.lua".source = ./lua/bindings.lua ;
+  xdg.configFile."nvim/init.lua" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./init.lua ;
+  };
+  xdg.configFile."nvim/lua" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./lua ;
+  };
 
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-
-    extraConfig = ''
-      luafile $HOME/.config/nvim/lua/settings.lua
-      luafile $HOME/.config/nvim/lua/coc.lua
-      luafile $HOME/.config/nvim/lua/bindings.lua
-    '';
 
     coc = {
       enable = true;

@@ -6,6 +6,17 @@ local opt = vim.opt  -- to set options
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.latex_to_unicode_auto = 1
+g.coc_global_extensions = {
+  'coc-java',
+  'coc-json',
+  'coc-julia',
+  'coc-markdown-preview-enhanced',
+  'coc-markdownlint',
+  'coc-pyright',
+  'coc-snippets',
+  'coc-toml',
+  'coc-webview'
+}
 
 require("catppuccin").setup({
   integrations = {
@@ -16,7 +27,7 @@ require("catppuccin").setup({
     treesitter = true,
     indent_blankline = {
       enabled = true,
-      colored_indent_levels = true
+      colored_indent_levels = false
     }
   }
 })
@@ -24,17 +35,17 @@ require("gitsigns").setup()
 require("indent_blankline").setup {
   show_current_context = true,
   show_current_context_start = true,
+  -- space_char_blankline = " ",
+  -- char_highlight_list = {
+  --   "IndentBlanklineIndent1",
+  --   "IndentBlanklineIndent2",
+  --   "IndentBlanklineIndent3",
+  --   "IndentBlanklineIndent4",
+  --   "IndentBlanklineIndent5",
+  --   "IndentBlanklineIndent6"
+  -- }
 }
 require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "julia",
-    "python",
-    "java",
-    "nix",
-    "lua",
-    "markdown",
-    "latex"
-  },
   highlight = {enable = true}
 })
 require("Comment").setup({
