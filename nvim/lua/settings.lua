@@ -17,6 +17,12 @@ g.coc_global_extensions = {
   'coc-toml',
   'coc-webview'
 }
+g.vimwiki_list = {{
+  path = '~/vimwiki/',
+  syntax = 'markdown',
+  ext = '.md'
+}}
+g.vimwiki_global_ext = 0
 
 require("catppuccin").setup({
   integrations = {

@@ -37,6 +37,7 @@
       nvim-web-devicons
       plenary-nvim
       vim-nix
+      vimwiki
     ];
   };
 }

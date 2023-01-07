@@ -13,26 +13,19 @@ map("n", "<leader>b", ":FzfLua buffers<CR>")
 map("n", "<leader>h", ":FzfLua oldfiles<CR>")
 map("n", "<leader>f", ":FzfLua files<CR>")
 map("n", "<leader>l", ":FzfLua blines<CR>")
--- map("n", "<leader>e", ":LspDiagnostics 0<CR>")
--- map("n", "<leader>]", "<cmd>lua vim.lsp.buf.definition()<CR>",
---     {noremap = true, silent = true})
--- map("n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>",
---     {noremap = true, silent = true})
--- map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<CR>",
---     {noremap = true, silent = true})
--- map("n", "<leader>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
---     {noremap = true, silent = true})
 map('n', "<leader>t", "<cmd>lua require(\"FTerm\").toggle()<CR>")
 map('t', "<leader>t", "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>")
-
--- Preview Markdown (COC)
 map("n", "<C-p>", ":CocCommand markdown-preview-enhanced.openPreview<CR>")
+map("n", "<leader>wi", "<Plug>VimwikiIndex")
 
 -- Navigate windows
 map("n", "<C-h>", "<C-w>h", {noremap = true})
 map("n", "<C-j>", "<C-w>j", {noremap = true})
 map("n", "<C-k>", "<C-w>k", {noremap = true})
 map("n", "<C-l>", "<C-w>l", {noremap = true})
+
+-- Tab keybindings
+map("n", "<C-t>", ":tabnew<CR>", {noremap = true})
 
 -- Original remappings from vim-better-default at
 -- https://github.com/liuchengxu/vim-better-default
