@@ -121,9 +121,34 @@
         "webgl.disabled" = true;
         "webgl.renderer-string-override" = " ";
         "webgl.vendor-string-override" = " ";
-	"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+	      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.proton.enabled" = true;
+        "svg.context-properties.content.enabled" = true;
+        "layout.css.color-mix.enabled" = true;
+        "layout.css.backdrop-filter.enabled" = true;
+        "browser.compactmode.show" = true;
+        "browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar" = false;
+        "layout.css.has-selector.enabled" = true;
+        "userChrome.tab.connect_to_window" = true;
+        "userChrome.tab.color_like_toolbar" = true;
+        "userChrome.tab.lepton_like_padding" = true;
+        "userChrome.tab.photon_like_padding" = false;
+        "userChrome.tab.dynamic_separator" = true;
+        "userChrome.tab.static_separator" = false;
+        "userChrome.tab.static_separator.selected_accent" = false;
+        "userChrome.tab.bar_separator" = false; 
+        "userChrome.tab.newtab_button_like_tab" = true;
+        "userChrome.tab.newtab_button_smaller" = false;
+        "userChrome.tab.newtab_button_proton" = false;
+        "userChrome.icon.panel_full" = true;
+        "userChrome.icon.panel_photon" = false;
+        "userChrome.tab.box_shadow" = true;
+        "userChrome.tab.bottom_rounded_corner" = true;
+        "userChrome.tab.photon_like_contextline" = false;
+        "userChrome.rounding.square_tab" =  false;
       };
       userChrome = ''
+        @import url("Firefox-UI-Fix/css/leptonChrome.css");
 	      ${builtins.readFile ./chrome/findbar.css}
 	      ${builtins.readFile ./chrome/megabar.css}
 	      ${builtins.readFile ./chrome/window_control_placeholder_support.css}
@@ -132,6 +157,9 @@
 	      #TabsToolbar {
 	        padding: 6px 4px 4px 6px !important;
 	      }
+      '';
+      userContent = ''
+        @import url("Firefox-UI-Fix/css/leptonContent.css");
       '';
     };
   };

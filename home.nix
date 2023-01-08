@@ -145,11 +145,13 @@
       gtk-cursor-theme-name = "Catppuccin-Mocha-Lavender";
     };
   };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       cursor-theme = "Catppuccin-Mocha-Lavender";
     };
   };
+
   xdg.systemDirs.data = [
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"

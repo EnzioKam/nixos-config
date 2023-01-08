@@ -7,8 +7,8 @@
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
-      floating.border = 4;
-      window.border = 4;
+      floating.border = 2;
+      window.border = 2;
       menu = "rofi -show drun";
       fonts = {
         names = ["JetBrainsMono Nerd Font"];
