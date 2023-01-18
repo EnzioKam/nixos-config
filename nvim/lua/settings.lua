@@ -31,6 +31,7 @@ require("catppuccin").setup({
     markdown = true,
     nvimtree = true,
     treesitter = true,
+    vimwiki = true,
     indent_blankline = {
       enabled = true,
       colored_indent_levels = false
