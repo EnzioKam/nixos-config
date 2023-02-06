@@ -6,9 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
@@ -114,9 +114,9 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    lm_sensors
-    at-spi2-atk
-  ];
+  lm_sensors
+  at-spi2-atk
+];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -173,7 +173,7 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
-	xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk
       ];
     };
   };

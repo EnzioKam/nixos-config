@@ -36,7 +36,7 @@
     gnumake
     imv
     julia-bin
-    libreoffice-fresh
+    # libreoffice-fresh
     networkmanagerapplet
     pavucontrol
     pfetch
@@ -128,8 +128,11 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Purple-Dark";
-      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Mocha-Standard-Lavender-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["lavender"];
+        variant = "mocha";
+      };
     };
     iconTheme = {
       name = "Papirus-Dark-Maia";
@@ -137,7 +140,7 @@
     };
     cursorTheme = {
       name = "Catppuccin-Mocha-Lavender";
-      package = pkgs.catppuccin-cursors;
+      package = pkgs.catppuccin-cursors.mochaLavender;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
