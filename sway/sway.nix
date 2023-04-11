@@ -100,7 +100,7 @@
       };
       output = {
         "*" = {
-          bg = "~/.config/nixpkgs/wallpaper.png fill";
+          bg = "~/.config/home-manager/wallpaper.png fill";
         };
       };
     };

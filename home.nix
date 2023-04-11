@@ -100,7 +100,7 @@
     userEmail = "enziokamhh@gmail.com";
   };
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     font = "JetBrainsMono Nerd Font 10";
   };

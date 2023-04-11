@@ -13,7 +13,7 @@
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     # "nixos-config=/etc/nixos/configuration.nix"
-    "nixos-config=/home/enziokam/.config/nixpkgs/configuration.nix"
+    "nixos-config=/home/enziokam/.config/home-manager/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
