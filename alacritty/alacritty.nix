@@ -1,7 +1,7 @@
 {pkgs, ...}:
 
 {
-  xdg.configFile."alacritty/theme.toml".source = ./theme/catppuccin-mocha.yml;
+  xdg.configFile."alacritty/theme.toml".source = ./catppuccin-mocha.yml;
 
   programs.alacritty = {
     enable = true;
