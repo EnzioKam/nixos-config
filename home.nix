@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stable, ... }:
 
 {
 
@@ -51,7 +51,6 @@
     swaybg
     swaylock
     sysfsutils
-    ungoogled-chromium
     unzip
     usbutils
     wdisplays
@@ -68,6 +67,11 @@
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
 
+  programs.chromium = {
+    enable = true;
+    package = stable.ungoogled-chromium;
+  };
+  
   xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml;
   xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=alacritty'';
 
