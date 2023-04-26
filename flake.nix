@@ -11,9 +11,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rofi-wl-src = {
+      url = "https://github.com/lbonn/rofi.git";
+      flake = false;
+      type = "git";
+      submodules = true;
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, rofi-wl-src, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -30,7 +37,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit stable; };
+        extraSpecialArgs = { inherit stable rofi-wl-src; };
         modules = [ ./home.nix ];
       };
     };

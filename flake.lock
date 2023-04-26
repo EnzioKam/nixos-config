@@ -52,11 +52,30 @@
         "type": "github"
       }
     },
+    "rofi-wl-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679493688,
+        "narHash": "sha256-8IfHpaVFGeWqyw+tLjNtg+aWwAHhSA5PuXJYjpoht2E=",
+        "ref": "refs/heads/wayland",
+        "rev": "d06095b5ed40e5d28236b7b7b575ca867696d847",
+        "revCount": 3840,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/lbonn/rofi.git"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/lbonn/rofi.git"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "rofi-wl-src": "rofi-wl-src"
       }
     }
   },
