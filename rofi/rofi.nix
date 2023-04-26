@@ -6,7 +6,7 @@
     package = pkgs.rofi-wayland;
     theme = "~/.config/rofi/catppuccin-mocha.rasi";
     extraConfig = {
-      modi = "run,drun";
+      modi = "run,drun,window";
       font = "DejaVuSansMono Nerd Font 12";
       show-icons = true;
       terminal = "alacritty";

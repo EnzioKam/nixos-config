@@ -84,7 +84,7 @@
         "${modifier}+p" = "move workspace to output right";
         "${modifier}+o" = "move workspace to output left";
         "${modifier}+l" = "exec swaylock";
-        "Mod1+Tab" = "exec i3-focus-last menu";
+        "Mod1+Tab" = "exec rofi -show window";
         "Mod1+Control+Right" = "workspace next";
         "Mod1+Control+Left" = "workspace prev";
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
