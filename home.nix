@@ -45,7 +45,7 @@ in {
     gnumake
     imv
     julia-bin
-    # libreoffice-fresh
+    libreoffice-fresh
     networkmanagerapplet
     pavucontrol
     pfetch
