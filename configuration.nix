@@ -82,6 +82,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable fwupd for firmware updates
+  services.fwupd.enable = true;
+
   # Enable TLP power management
   services.tlp = {
     enable = true;
