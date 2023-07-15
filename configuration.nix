@@ -2,9 +2,45 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, auto-cpufreq-src, ... }:
 
-{
+let
+
+  auto-cpufreq_overlay = (self: super: {
+    auto-cpufreq = super.auto-cpufreq.overrideAttrs(old: {
+      src = auto-cpufreq-src;
+      propagatedBuildInputs = with super.python3Packages; [
+        click
+        distro
+        psutil
+        setuptools
+      ];
+      patches = [];
+      postPatch = ''
+        sed -i setup.py \
+        -e 's|"setuptools-git-versioning"||'
+        sed -i auto_cpufreq/core.py \
+        -e 's|/usr/local/share/auto-cpufreq/scripts/|/run/current-system/sw/bin/|' \
+        -e 's|def cpufreqctl():|def cpufreqctl():\n    pass\n    return|' \
+        -e 's|def cpufreqctl_restore():|def cpufreqctl_restore():\n    pass\n    return|' \
+        -e 's|def deploy_daemon():|def deploy_daemon():\n    pass\n    return|' \
+        -e 's|def deploy_daemon_performance():|def deploy_daemon_performance():\n    pass\n    return|' \
+        -e 's|def remove():|def remove():\n    pass\n    return|' \
+        -e 's|def app_version():|def app_version():\n    print("auto-cpufreq version: @version@")\n    print("Git commit: v@version@")\n    pass\n    return|'
+        sed -i scripts/auto-cpufreq.service \
+        -e '/^WorkingDirectory=/d' \
+        -e '/^Environment=/d' \
+        -e 's|ExecStart=.*/bin|ExecStart='$out'/bin|'
+      '';
+       postInstall = ''
+        cp scripts/cpufreqctl.sh $out/bin/cpufreqctl.auto-cpufreq
+        mkdir -p $out/lib/systemd/system
+        cp scripts/auto-cpufreq.service $out/lib/systemd/system/auto-cpufreq.service
+      '';
+    });
+  });
+
+in {
   imports =
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,12 +53,17 @@
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
+  nixpkgs.overlays = [ auto-cpufreq_overlay ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "amd_pstate=active"
+  ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -85,14 +126,7 @@
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
 
-  # Enable TLP power management
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = 80;
-      STOP_CHARGE_THRESH_BAT0 = 85;
-    };
-  };
+  services.auto-cpufreq.enable = true;
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
@@ -115,11 +149,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  lm_sensors
-  at-spi2-atk
-];
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # wget
+    lm_sensors
+    at-spi2-atk
+    dmidecode
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

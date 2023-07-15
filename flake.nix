@@ -18,9 +18,21 @@
       type = "git";
       submodules = true;
     };
+
+    auto-cpufreq-src = {
+      url = "github:AdnanHodzic/auto-cpufreq/v1.9.8";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, rofi-wl-src, ... }:
+  outputs = {
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    rofi-wl-src,
+    auto-cpufreq-src,
+    ...
+  }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -29,7 +41,7 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit stable; };
+        specialArgs = { inherit stable auto-cpufreq-src; };
         modules = [ ./configuration.nix ];
       };
     };
