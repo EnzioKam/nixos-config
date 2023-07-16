@@ -37,6 +37,7 @@ in {
     bat
     blueman
     bottom
+    brave
     brightnessctl
     fd
     fzf
@@ -74,10 +75,6 @@ in {
     zip
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
-
-  programs.chromium = {
-    enable = true;
-  };
   
   xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml;
   xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=alacritty'';
