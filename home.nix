@@ -35,6 +35,7 @@ in {
     autotiling
     bashmount
     bat
+    bc
     blueman
     bottom
     brave
