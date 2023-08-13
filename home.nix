@@ -1,5 +1,7 @@
 { config, pkgs, rofi-wl-src, ... }:
 
+{
+
   imports = [
     ./alacritty/alacritty.nix
     ./firefox/firefox.nix
