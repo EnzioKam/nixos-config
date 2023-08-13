@@ -13,7 +13,7 @@
     };
 
     auto-cpufreq-src = {
-      url = "github:AdnanHodzic/auto-cpufreq/v1.9.8";
+      url = "github:AdnanHodzic/auto-cpufreq/v1.9.9";
       flake = false;
     };
   };

@@ -14,6 +14,7 @@ let
         distro
         psutil
         setuptools
+        requests
       ];
       patches = [];
       postPatch = ''

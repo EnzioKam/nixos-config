@@ -3,16 +3,16 @@
     "auto-cpufreq-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1684670609,
-        "narHash": "sha256-ElYzVteBnoz7BevA6j/730BMG0RsmhBQ4PNl9+0Kw4k=",
+        "lastModified": 1691748128,
+        "narHash": "sha256-D/5pwE2V+yXj92ECOUcl/dajMDbvVdz9YNJrl2Pzvts=",
         "owner": "AdnanHodzic",
         "repo": "auto-cpufreq",
-        "rev": "3dcf2fd837584b5e4481b5a9f23438d65a507502",
+        "rev": "b0f84726d7be7f6339144a40a4a42204f4a57932",
         "type": "github"
       },
       "original": {
         "owner": "AdnanHodzic",
-        "ref": "v1.9.8",
+        "ref": "v1.9.9",
         "repo": "auto-cpufreq",
         "type": "github"
       }

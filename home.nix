@@ -1,4 +1,4 @@
-{ config, pkgs, rofi-wl-src, ... }:
+{ config, pkgs, stable, ... }:
 
 {
 
@@ -89,6 +89,7 @@
   programs.home-manager.enable = true;
 
   programs.exa = {
+    package = stable.exa;
     enable = true;
     enableAliases = true;
   };
