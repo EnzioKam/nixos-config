@@ -1,17 +1,5 @@
 { config, pkgs, rofi-wl-src, ... }:
 
-let
-
-  rofi_overlay = (self: super: {
-    rofi-wayland-unwrapped = super.rofi-wayland-unwrapped.overrideAttrs(old: {
-      src = rofi-wl-src;
-    });
-  });
-
-in {
-
-  nixpkgs.overlays = [ rofi_overlay ];
-
   imports = [
     ./alacritty/alacritty.nix
     ./firefox/firefox.nix

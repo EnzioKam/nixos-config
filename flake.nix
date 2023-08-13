@@ -12,13 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rofi-wl-src = {
-      url = "https://github.com/lbonn/rofi.git";
-      flake = false;
-      type = "git";
-      submodules = true;
-    };
-
     auto-cpufreq-src = {
       url = "github:AdnanHodzic/auto-cpufreq/v1.9.8";
       flake = false;
@@ -29,7 +22,6 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
-    rofi-wl-src,
     auto-cpufreq-src,
     ...
   }:
@@ -49,7 +41,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit stable rofi-wl-src; };
+        extraSpecialArgs = { inherit stable; };
         modules = [ ./home.nix ];
       };
     };
