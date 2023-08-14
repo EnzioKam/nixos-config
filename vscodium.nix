@@ -42,13 +42,13 @@ in {
         "**/.project" = true;
         "**/.settings" = true;
       };
-      "java.jdt.ls.java.home" =  "/home/enziokam/.nix-profile/bin/java";
+      "java.jdt.ls.java.home" =  "${pkgs.jdk17}/lib/openjdk";
       "julia.execution.resultType" = "inline";
       "julia.symbolCacheDownload" = true;
       "julia.useCustomSysimage" = false;
       "latex-workshop.latex.autoBuild.run" = "never";
       "latex-workshop.view.pdf.viewer" = "tab";
-      "redhat.telemetry.enable" = "false";
+      "redhat.telemetry.enabled" = false;
       "terminal.external.linuxExec" = "alacritty";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "material-icon-theme";
