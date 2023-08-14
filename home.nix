@@ -1,4 +1,4 @@
-{ config, pkgs, stable, ... }:
+{ config, pkgs, stable, codeoss-ext, ... }:
 
 {
 
@@ -10,6 +10,7 @@
     ./starship.nix
     ./sway/i3status-rust.nix
     ./sway/sway.nix
+    ./vscodium.nix
     ./zsh.nix
   ];
 
@@ -52,6 +53,7 @@
     swaybg
     swaylock
     sysfsutils
+    texlive.combined.scheme-medium
     unzip
     usbutils
     wdisplays

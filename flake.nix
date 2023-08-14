@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    codeoss-ext = {
+      url = "github:nix-community/nix-vscode-extensions";
+    };
+
     auto-cpufreq-src = {
       url = "github:AdnanHodzic/auto-cpufreq/v1.9.9";
       flake = false;
@@ -22,6 +26,7 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
+    codeoss-ext,
     auto-cpufreq-src,
     ...
   }:
@@ -41,7 +46,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit stable; };
+        extraSpecialArgs = { inherit stable codeoss-ext; };
         modules = [ ./home.nix ];
       };
     };
