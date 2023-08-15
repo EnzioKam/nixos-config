@@ -43,7 +43,9 @@ let
 
 in {
   imports =
-  [ # Include the results of the hardware scan.
+  [
+    ./amd.nix
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -104,6 +106,9 @@ in {
   # Enable GVFs virtual filesystem support
   services.gvfs.enable = true;
 
+  # Enable trim for SSDs
+  services.fstrim.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -152,9 +157,12 @@ in {
   environment.systemPackages = with pkgs; [
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
-    lm_sensors
     at-spi2-atk
     dmidecode
+    glxinfo
+    libva-utils
+    lm_sensors
+    nvtop-amd
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
