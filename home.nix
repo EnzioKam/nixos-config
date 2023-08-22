@@ -33,6 +33,8 @@
     brightnessctl
     fd
     fzf
+    gcc
+    gdb
     glib
     gnome.file-roller
     gnumake
@@ -43,6 +45,7 @@
     pavucontrol
     pfetch
     polkit_gnome
+    powertop
     pulseaudio
     python311
     qpdfview
