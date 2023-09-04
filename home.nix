@@ -51,6 +51,7 @@ in
     gnumake
     imv
     julia-bin
+    libnotify
     libreoffice-fresh
     networkmanagerapplet
     pavucontrol
@@ -110,7 +111,15 @@ in
 
   services.mako = {
     enable = true;
+    backgroundColor = "#1e1e2e";
+    textColor = "#cdd6f4";
+    borderColor = "#89b4fa";
+    progressColor = "over #313244";
     font = "JetBrainsMono Nerd Font 10";
+    extraConfig = ''
+      [urgency=high]
+      border-color=#fab387
+    '';
   };
 
   services.kanshi = {
