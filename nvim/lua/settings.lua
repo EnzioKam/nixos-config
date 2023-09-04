@@ -7,6 +7,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.latex_to_unicode_auto = 1
 g.coc_global_extensions = {
+  'coc-clangd',
   'coc-java',
   'coc-json',
   'coc-julia',

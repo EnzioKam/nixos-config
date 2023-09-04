@@ -31,6 +31,7 @@
     bottom
     brave
     brightnessctl
+    clang-tools
     fd
     fzf
     gcc
