@@ -44,7 +44,7 @@
   programs.swaylock = {
     enable = true;
     settings = {
-      image = "../wallpaper.png";
+      image = "~/.config/home-manager/wallpaper.png";
     };
   };
 }
