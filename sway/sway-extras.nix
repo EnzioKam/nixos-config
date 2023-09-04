@@ -1,7 +1,18 @@
 {pkgs, ...}:
 
 {
-  xdg.configFile."i3status-rust/theme.toml".source = ./theme.toml; 
+  home.packages = with pkgs; [
+    shotman
+    swaybg
+    wdisplays
+    wl-clipboard
+    wl-mirror
+    wob
+    workstyle
+  ];
+
+  xdg.configFile."i3status-rust/theme.toml".source = ./i3status-rust.toml; 
+  xdg.configFile."workstyle/config.toml".source = ./workstyle.toml;
 
   programs.i3status-rust = {
     enable = true;
@@ -27,6 +38,13 @@
         icons = "material-nf";
         theme = "/home/enziokam/.config/i3status-rust/theme.toml";
       };
+    };
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = "../wallpaper.png";
     };
   };
 }

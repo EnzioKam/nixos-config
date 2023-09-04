@@ -78,12 +78,12 @@
         "${modifier}+q" = "kill";
         "${modifier}+Shift+q" = 
         "exec rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout\"";
-        "${modifier}+b" = "exec firefox";
         "${modifier}+Shift+r" = "reload";
         "${modifier}+space" = "floating toggle";
         "${modifier}+p" = "move workspace to output right";
         "${modifier}+o" = "move workspace to output left";
         "${modifier}+l" = "exec swaylock";
+        "${modifier}+s" = "exec shotman --capture region";
         "Mod1+Tab" = "exec rofi -show window";
         "Mod1+Control+Right" = "workspace next";
         "Mod1+Control+Left" = "workspace prev";

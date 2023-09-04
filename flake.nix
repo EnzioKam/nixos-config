@@ -20,6 +20,11 @@
       url = "github:AdnanHodzic/auto-cpufreq/v1.9.9";
       flake = false;
     };
+
+    wdisplays-src = {
+      url = "github:artizirk/wdisplays";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -28,6 +33,7 @@
     home-manager,
     codeoss-ext,
     auto-cpufreq-src,
+    wdisplays-src,
     ...
   }:
   let
@@ -46,7 +52,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit stable codeoss-ext; };
+        extraSpecialArgs = { inherit stable codeoss-ext wdisplays-src; };
         modules = [ ./home.nix ];
       };
     };

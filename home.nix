@@ -1,6 +1,16 @@
-{ config, pkgs, stable, codeoss-ext, ... }:
+{ config, pkgs, stable, codeoss-ext, wdisplays-src, ... }:
+
+let
+ 
+  wdisplays_overlay = (self: super: {
+    src = wdisplays-src;
+  });
+
+in
 
 {
+
+  nixpkgs.overlays = [ wdisplays_overlay ];
 
   imports = [
     ./alacritty/alacritty.nix
@@ -8,8 +18,8 @@
     ./nvim/nvim.nix
     ./rofi/rofi.nix
     ./starship.nix
-    ./sway/i3status-rust.nix
     ./sway/sway.nix
+    ./sway/sway-extras.nix
     ./vscodium.nix
     ./zsh.nix
   ];
@@ -53,17 +63,10 @@
     ripgrep
     rofi-power-menu
     sioyek
-    sway-contrib.grimshot
-    swaybg
-    swaylock
     sysfsutils
     texlive.combined.scheme-medium
     unzip
     usbutils
-    wdisplays
-    wl-clipboard
-    wl-mirror
-    workstyle
     xdg-utils
     xfce.exo
     xfce.thunar
@@ -73,7 +76,6 @@
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
   
-  xdg.configFile."workstyle/config.toml".source = ./workstyle/config.toml;
   xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=alacritty'';
 
   # This value determines the Home Manager release that your
