@@ -6,6 +6,18 @@ let
     src = wdisplays-src;
   });
 
+  notif-bkl = pkgs.writeShellScriptBin "notif-bkl" ''
+    notify-send -t 3000 \
+    "Brightness: $(brightnessctl i | \
+    awk -W posix '/Current/ {gsub("\\(", ""); gsub("\\)", ""); print $4; exit}')"
+  '';
+
+  notif-vol = pkgs.writeShellScriptBin "notif-vol" ''
+    notify-send -t 3000 \
+    "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | \
+    awk -W posix '/^Volume: / {print $5; exit}')"
+  '';
+
 in
 
 {
@@ -54,6 +66,8 @@ in
     libnotify
     libreoffice-fresh
     networkmanagerapplet
+    notif-bkl
+    notif-vol
     pavucontrol
     pfetch
     polkit_gnome
