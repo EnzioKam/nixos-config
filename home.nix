@@ -6,13 +6,13 @@ let
     src = wdisplays-src;
   });
 
-  notif-bkl = pkgs.writeShellScriptBin "notif-bkl" ''
+  notify-bkl = pkgs.writeShellScriptBin "notify-bkl" ''
     notify-send -t 3000 \
     "Brightness: $(brightnessctl i | \
     awk -W posix '/Current/ {gsub("\\(", ""); gsub("\\)", ""); print $4; exit}')"
   '';
 
-  notif-vol = pkgs.writeShellScriptBin "notif-vol" ''
+  notify-vol = pkgs.writeShellScriptBin "notify-vol" ''
     notify-send -t 3000 \
     "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | \
     awk -W posix '/^Volume: / {print $5; exit}')"
@@ -66,8 +66,8 @@ in
     libnotify
     libreoffice-fresh
     networkmanagerapplet
-    notif-bkl
-    notif-vol
+    notify-bkl
+    notify-vol
     pavucontrol
     pfetch
     polkit_gnome
@@ -106,6 +106,7 @@ in
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
     XDG_CURRENT_DESKTOP = "sway"; 
+    WOBSOCK = "$XDG_RUNTIME_DIR/wob.sock";
   };
 
   # Let Home Manager install and manage itself.
