@@ -2,6 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    autotiling
+    brightnessctl
+    libnotify
+    pulseaudio
     shotman
     swaybg
     wdisplays

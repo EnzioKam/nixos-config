@@ -6,18 +6,6 @@ let
     src = wdisplays-src;
   });
 
-  notify-bkl = pkgs.writeShellScriptBin "notify-bkl" ''
-    notify-send -t 3000 \
-    "Brightness: $(brightnessctl i | \
-    awk -W posix '/Current/ {gsub("\\(", ""); gsub("\\)", ""); print $4; exit}')"
-  '';
-
-  notify-vol = pkgs.writeShellScriptBin "notify-vol" ''
-    notify-send -t 3000 \
-    "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | \
-    awk -W posix '/^Volume: / {print $5; exit}')"
-  '';
-
 in
 
 {
@@ -45,14 +33,12 @@ in
 
   # Packages that should be intalled to the user profile
   home.packages = with pkgs; [
-    autotiling
     bashmount
     bat
     bc
     blueman
     bottom
     brave
-    brightnessctl
     clang-tools
     fd
     fzf
@@ -63,16 +49,12 @@ in
     gnumake
     imv
     julia-bin
-    libnotify
     libreoffice-fresh
     networkmanagerapplet
-    notify-bkl
-    notify-vol
     pavucontrol
     pfetch
     polkit_gnome
     powertop
-    pulseaudio
     python311
     qpdfview
     ripgrep
@@ -124,23 +106,6 @@ in
     userEmail = "enziokamhh@gmail.com";
   };
 
-  services.mako = {
-    enable = true;
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
-    borderColor = "#89b4fa";
-    progressColor = "over #313244";
-    font = "JetBrainsMono Nerd Font 10";
-    extraConfig = ''
-      [urgency=high]
-      border-color=#fab387
-    '';
-  };
-
-  services.kanshi = {
-    enable = true;
-  };
-
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
@@ -155,6 +120,29 @@ in
       hwdec = "vaapi";
       gpu-context = "wayland";
     };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
+  };
+
+  services.kanshi = {
+    enable = true;
+  };
+
+  services.mako = {
+    enable = true;
+    backgroundColor = "#1e1e2e";
+    textColor = "#cdd6f4";
+    borderColor = "#89b4fa";
+    progressColor = "over #313244";
+    font = "JetBrainsMono Nerd Font 10";
+    extraConfig = ''
+      [urgency=high]
+      border-color=#fab387
+    '';
   };
 
   gtk = {
@@ -192,11 +180,5 @@ in
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
   ];
-
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
-  };
 
 }
