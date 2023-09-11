@@ -4,7 +4,7 @@
   inputs = {
     # nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # home-manager
     home-manager = {
@@ -29,7 +29,7 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-stable,
+    # nixpkgs-stable,
     home-manager,
     codeoss-ext,
     auto-cpufreq-src,
@@ -39,12 +39,12 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
-    stable = import nixpkgs-stable { inherit system; };
+    # stable = import nixpkgs-stable { inherit system; };
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit stable auto-cpufreq-src; };
+        specialArgs = { inherit auto-cpufreq-src; };
         modules = [ ./configuration.nix ];
       };
     };
@@ -52,7 +52,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit stable codeoss-ext wdisplays-src; };
+        extraSpecialArgs = { inherit codeoss-ext wdisplays-src; };
         modules = [ ./home.nix ];
       };
     };

@@ -1,4 +1,4 @@
-{ config, pkgs, stable, codeoss-ext, wdisplays-src, ... }:
+{ config, pkgs, codeoss-ext, wdisplays-src, ... }:
 
 let
  
@@ -94,8 +94,7 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.exa = {
-    package = stable.exa;
+  programs.eza = {
     enable = true;
     enableAliases = true;
   };
