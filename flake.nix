@@ -16,11 +16,6 @@
       url = "github:nix-community/nix-vscode-extensions";
     };
 
-    auto-cpufreq-src = {
-      url = "github:AdnanHodzic/auto-cpufreq/v1.9.9";
-      flake = false;
-    };
-
     wdisplays-src = {
       url = "github:artizirk/wdisplays";
       flake = false;
@@ -32,7 +27,6 @@
     # nixpkgs-stable,
     home-manager,
     codeoss-ext,
-    auto-cpufreq-src,
     wdisplays-src,
     ...
   }:
@@ -44,7 +38,6 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit auto-cpufreq-src; };
         modules = [ ./configuration.nix ];
       };
     };

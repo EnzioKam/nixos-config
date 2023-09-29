@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "auto-cpufreq-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1691748128,
-        "narHash": "sha256-D/5pwE2V+yXj92ECOUcl/dajMDbvVdz9YNJrl2Pzvts=",
-        "owner": "AdnanHodzic",
-        "repo": "auto-cpufreq",
-        "rev": "b0f84726d7be7f6339144a40a4a42204f4a57932",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AdnanHodzic",
-        "ref": "v1.9.9",
-        "repo": "auto-cpufreq",
-        "type": "github"
-      }
-    },
     "codeoss-ext": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -125,7 +108,6 @@
     },
     "root": {
       "inputs": {
-        "auto-cpufreq-src": "auto-cpufreq-src",
         "codeoss-ext": "codeoss-ext",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",

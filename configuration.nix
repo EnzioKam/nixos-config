@@ -2,46 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, auto-cpufreq-src, ... }:
+{ config, pkgs, ... }:
 
-let
-
-  auto-cpufreq_overlay = (self: super: {
-    auto-cpufreq = super.auto-cpufreq.overrideAttrs(old: {
-      src = auto-cpufreq-src;
-      propagatedBuildInputs = with super.python3Packages; [
-        click
-        distro
-        psutil
-        setuptools
-        requests
-      ];
-      patches = [];
-      postPatch = ''
-        sed -i setup.py \
-        -e 's|"setuptools-git-versioning"||'
-        sed -i auto_cpufreq/core.py \
-        -e 's|/usr/local/share/auto-cpufreq/scripts/|/run/current-system/sw/bin/|' \
-        -e 's|def cpufreqctl():|def cpufreqctl():\n    pass\n    return|' \
-        -e 's|def cpufreqctl_restore():|def cpufreqctl_restore():\n    pass\n    return|' \
-        -e 's|def deploy_daemon():|def deploy_daemon():\n    pass\n    return|' \
-        -e 's|def deploy_daemon_performance():|def deploy_daemon_performance():\n    pass\n    return|' \
-        -e 's|def remove():|def remove():\n    pass\n    return|' \
-        -e 's|def app_version():|def app_version():\n    print("auto-cpufreq version: @version@")\n    print("Git commit: v@version@")\n    pass\n    return|'
-        sed -i scripts/auto-cpufreq.service \
-        -e '/^WorkingDirectory=/d' \
-        -e '/^Environment=/d' \
-        -e 's|ExecStart=.*/bin|ExecStart='$out'/bin|'
-      '';
-       postInstall = ''
-        cp scripts/cpufreqctl.sh $out/bin/cpufreqctl.auto-cpufreq
-        mkdir -p $out/lib/systemd/system
-        cp scripts/auto-cpufreq.service $out/lib/systemd/system/auto-cpufreq.service
-      '';
-    });
-  });
-
-in {
+{
   imports =
   [
     ./amd.nix
@@ -55,8 +18,6 @@ in {
     "nixos-config=/home/enziokam/.config/home-manager/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
-
-  nixpkgs.overlays = [ auto-cpufreq_overlay ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
