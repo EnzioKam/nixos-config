@@ -35,6 +35,7 @@ require("catppuccin").setup({
     vimwiki = true,
     indent_blankline = {
       enabled = true,
+      scope_color = "lavender",
       colored_indent_levels = false
     }
   }
@@ -42,7 +43,10 @@ require("catppuccin").setup({
 require("gitsigns").setup()
 require("ibl").setup()
 require("nvim-treesitter.configs").setup({
-  highlight = {enable = true}
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false
+  }
 })
 require("Comment").setup({
   toggler = {

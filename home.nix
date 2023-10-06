@@ -51,6 +51,10 @@ in
     julia-bin
     libreoffice-fresh
     networkmanagerapplet
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-emoji
     pavucontrol
     pfetch
     polkit_gnome
