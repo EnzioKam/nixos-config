@@ -1,4 +1,4 @@
-{ config, pkgs, codeoss-ext, wdisplays-src, ... }:
+{ config, pkgs, wdisplays-src, ... }:
 
 let
  
@@ -20,7 +20,6 @@ in
     ./starship.nix
     ./sway/sway.nix
     ./sway/sway-extras.nix
-    ./vscodium.nix
     ./zsh.nix
   ];
 

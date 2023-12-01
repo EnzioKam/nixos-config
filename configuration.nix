@@ -67,6 +67,9 @@
   # Enable GVFs virtual filesystem support
   services.gvfs.enable = true;
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
+
   # Enable trim for SSDs
   services.fstrim.enable = true;
 

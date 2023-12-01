@@ -11,10 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    codeoss-ext = {
-      url = "github:nix-community/nix-vscode-extensions";
-    };
-
     wdisplays-src = {
       url = "github:artizirk/wdisplays";
       flake = false;
@@ -24,7 +20,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    codeoss-ext,
     wdisplays-src,
     ...
   }:
@@ -42,7 +37,7 @@
     homeConfigurations = {
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit codeoss-ext wdisplays-src; };
+        extraSpecialArgs = { inherit wdisplays-src; };
         modules = [ ./home.nix ];
       };
     };
