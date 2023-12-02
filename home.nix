@@ -20,6 +20,7 @@ in
     ./starship.nix
     ./sway/sway.nix
     ./sway/sway-extras.nix
+    ./sway/waybar.nix
     ./zsh.nix
   ];
 
