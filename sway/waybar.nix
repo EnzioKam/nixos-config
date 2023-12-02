@@ -50,6 +50,7 @@
           format = "󰔏 {temperatureC}°C";
           format-critical = "󰔏 {temperatureC}°C";
           critical-threshold = 80;
+          tooltip = false;
         };
 
         cpu = {

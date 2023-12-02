@@ -25,9 +25,12 @@ window#waybar.hidden {
   background: transparent;
 }
 
-#tooltip {
-  color: @subtext0;
-  background: @mantle;
+tooltip {
+  background: @surface1;
+}
+
+tooltip label {
+  color: @text;
 }
 
 #workspaces {
@@ -35,13 +38,14 @@ window#waybar.hidden {
   margin-left: 12px;
   margin-bottom: 0;
   border-radius: 26px;
-  background: @base;
+  background: @surface1;
+  color: @text;
   transition: none;
 }
 
 #workspaces button {
   transition: none;
-  color: @subtext1;
+  color: @text;
   border-radius: 26px;
   background: transparent;
   font-size: 16px;
@@ -123,7 +127,7 @@ window#waybar.hidden {
 
 #clock {
   color: @text;
-  background: @base;
+  background: @surface1;
 }
 
 #battery {
