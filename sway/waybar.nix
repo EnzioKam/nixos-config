@@ -12,13 +12,14 @@
           "sway/mode"
         ];
         modules-center = [
-          "clock"
           "tray"
+          "clock"
         ];
         modules-right = [
           "network"
           "pulseaudio"
           "temperature"
+          "disk"
           "cpu"
           "memory"
           "backlight"
@@ -38,12 +39,18 @@
         };
 
         pulseaudio = {
-          format = " {icon} {volume}%";
+          format = "{icon} {volume}%";
           format-muted = "󰖁";
           format-icons = ["" "" ""];
           scroll-step = 5;
           tooltip = false;
         };
+
+        temperature = {
+          format = "󰔏 {temperatureC} °C";
+          format-critical = "󰔏 {temperatureC} °C";
+          critical-threshold = 80;
+        }
 
         cpu = {
           format = " {}%";
@@ -62,10 +69,9 @@
 
         backlight = {
           device = "intel_backlight";
-          format = "{icon}";
+          format = "{icon} {percent}%";
           format-icons = ["" "" "" "" "" "" "" "" ""];
-          tooltip = true;
-          tooltip-format = "{percent}%";
+          tooltip = false;
         };
 
         battery = {
@@ -73,12 +79,11 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}";
-          format-charging = "󰂄";
-          format-plugged = "󰂄";
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          tooltip = true;
-          tooltip-format = "{capacity}%";
+          tooltip = false;
         };
 
         clock = {
