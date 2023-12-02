@@ -47,10 +47,10 @@
         };
 
         temperature = {
-          format = "󰔏 {temperatureC} °C";
-          format-critical = "󰔏 {temperatureC} °C";
+          format = "󰔏 {temperatureC}°C";
+          format-critical = "󰔏 {temperatureC}°C";
           critical-threshold = 80;
-        }
+        };
 
         cpu = {
           format = " {}%";
@@ -63,8 +63,8 @@
         };
 
         disk = {
-          format = "󰋊 {free}";
-          tooltip = false;
+          format = "󰋊 {percentage_free}%";
+          tooltip-format = "{free} / {total}";
         };
 
         backlight = {
