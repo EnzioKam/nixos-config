@@ -23,6 +23,7 @@
           instance = "Alacritty";
           general = "Alacritty";
         };
+        opacity = 0.9;
       };
       font = {
         normal = {

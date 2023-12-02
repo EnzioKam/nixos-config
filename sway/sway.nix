@@ -3,15 +3,24 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraConfigEarly = ''
       exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
     '';
+    extraConfig = ''
+      blur enable
+      blur_xray disable
+      blur_passes 1
+      blur_radius 2
+      corner_radius 10
+      default_dim_inactive 0.5
+    '';
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
-      floating.border = 2;
-      window.border = 2;
+      floating.border = 0;
+      window.border = 0;
       menu = "rofi -show drun";
       fonts = {
         names = ["JetBrainsMono Nerd Font"];
@@ -65,7 +74,7 @@
         };
         trayOutput = "*";
         colors = let colorScheme = import ../catppuccin.nix; in {
-          background = "${colorScheme.background}";
+          background = "${colorScheme.background}33";
           focusedWorkspace = { background = "${colorScheme.color9}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
           activeWorkspace = { background = "${colorScheme.foreground}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
           inactiveWorkspace = { background = "${colorScheme.color7}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
