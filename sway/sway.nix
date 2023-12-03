@@ -1,6 +1,19 @@
 {pkgs, config, ...}:
 
 {
+  home.packages = with pkgs; [
+    autotiling
+    brightnessctl
+    libnotify
+    pulseaudio
+    shotman
+    swaybg
+    wdisplays
+    wl-clipboard
+    wl-mirror
+    wob
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.swayfx;
@@ -65,26 +78,13 @@
         };
       };
       bars = [{
-        # statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
         command = "${pkgs.waybar}/bin/waybar";
         position = "top";
-        # fonts = {
-        #   names = ["JetBrainsMono Nerd Font"];
-        #   size = 12.0;
-        # };
-        # trayOutput = "*";
-        # colors = let colorScheme = import ../catppuccin.nix; in {
-        #   background = "${colorScheme.background}80";
-        #   focusedWorkspace = { background = "${colorScheme.color9}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
-        #   activeWorkspace = { background = "${colorScheme.foreground}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
-        #   inactiveWorkspace = { background = "${colorScheme.color7}"; border = "${colorScheme.color0}"; text = "${colorScheme.color0}"; };
-        # };
       }];
       startup = [
         { command = "systemctl --user import-environment"; }
         { command = "autotiling"; }
         { command = "sleep 5; systemctl --user start kanshi.service"; }
-        { command = "workstyle &> /tmp/workstyle.log"; }
       ];
       keybindings = 
         let  
@@ -120,6 +120,13 @@
           bg = "~/.config/home-manager/wallpaper.png fill";
         };
       };
+    };
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = "~/.config/home-manager/wallpaper.png";
     };
   };
 }

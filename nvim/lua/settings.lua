@@ -26,6 +26,7 @@ g.vimwiki_list = {{
 g.vimwiki_global_ext = 0
 
 require("catppuccin").setup({
+  transparent_background = true,
   integrations = {
     coc_nvim = true,
     gitsigns = true,

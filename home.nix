@@ -19,7 +19,6 @@ in
     ./rofi/rofi.nix
     ./starship.nix
     ./sway/sway.nix
-    ./sway/sway-extras.nix
     ./sway/waybar.nix
     ./zsh.nix
   ];
@@ -151,9 +150,9 @@ in
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["lavender"];
+        accents = ["mauve"];
         size = "compact";
         variant = "mocha";
       };
@@ -163,19 +162,19 @@ in
       package = pkgs.papirus-maia-icon-theme;
     };
     cursorTheme = {
-      name = "Catppuccin-Mocha-Lavender";
-      package = pkgs.catppuccin-cursors.mochaLavender;
+      name = "Catppuccin-Mocha-Mauve";
+      package = pkgs.catppuccin-cursors.mochaMauve;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
       gtk-icon-theme-name = "Papirus-Dark-Maia";
-      gtk-cursor-theme-name = "Catppuccin-Mocha-Lavender";
+      gtk-cursor-theme-name = "Catppuccin-Mocha-Mauve";
     };
   };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "Catppuccin-Mocha-Lavender";
+      cursor-theme = "Catppuccin-Mocha-Mauve";
     };
   };
 
