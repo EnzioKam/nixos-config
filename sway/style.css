@@ -140,6 +140,10 @@ tooltip label {
 }
 
 #battery.warning:not(.charging) {
+  background: @maroon;
+}
+
+#battery.critical:not(.charging) {
   background: @red;
 }
 

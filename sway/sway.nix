@@ -27,7 +27,7 @@
       blur_passes 1
       blur_radius 2
       corner_radius 10
-      default_dim_inactive 0.5
+      default_dim_inactive 0
     '';
     config = rec {
       modifier = "Mod4";
