@@ -19,6 +19,7 @@ in
     ./rofi/rofi.nix
     ./starship.nix
     ./sway/sway.nix
+    ./sway/swaylock.nix
     ./sway/waybar.nix
     ./zsh.nix
   ];

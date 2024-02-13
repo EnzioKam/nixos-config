@@ -122,12 +122,5 @@
       };
     };
   };
-
-  programs.swaylock = {
-    enable = true;
-    settings = {
-      image = "~/.config/home-manager/wallpaper.png";
-    };
-  };
 }
 
