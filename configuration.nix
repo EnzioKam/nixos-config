@@ -63,6 +63,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  }
 
   # Enable GVFs virtual filesystem support
   services.gvfs.enable = true;
