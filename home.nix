@@ -128,7 +128,7 @@ in
   programs.sioyek = {
     enable = true;
     config = {
-      "page_separator_width" = 2;
+      "page_separator_width" = "2";
     };
   };
 

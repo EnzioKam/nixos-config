@@ -9,8 +9,8 @@
     position: absolute !important;
     right: 1em;
     left: 1em;
-    width: 50%;
-    /* border: 1px solid threedshadow !important; */
+    width: 55%;
+    border: 1px solid threedshadow !important;
 
     /* Hide the "border" at the top by removing the box-shadow and background-image */
     border-top: none !important;
