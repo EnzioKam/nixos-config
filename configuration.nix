@@ -67,7 +67,7 @@
     enable = true;
     nssmdns = true;
     openFirewall = true;
-  }
+  };
 
   # Enable GVFs virtual filesystem support
   services.gvfs.enable = true;

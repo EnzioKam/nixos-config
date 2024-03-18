@@ -64,7 +64,6 @@ in
     qpdfview
     ripgrep
     rofi-power-menu
-    sioyek
     sysfsutils
     texlive.combined.scheme-medium
     unzip
@@ -123,6 +122,13 @@ in
       vo = "dmabuf-wayland";
       hwdec = "vaapi";
       gpu-context = "wayland";
+    };
+  };
+
+  programs.sioyek = {
+    enable = true;
+    config = {
+      "page_separator_width" = 2;
     };
   };
 
