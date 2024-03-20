@@ -149,6 +149,7 @@
 	      ${builtins.readFile ./chrome/findbar.css}
 	      ${builtins.readFile ./chrome/megabar.css}
 	      ${builtins.readFile ./chrome/toolbar.css}
+	      ${builtins.readFile ./chrome/sidebar.css}
       '';
       userContent = ''
         @import url("Firefox-UI-Fix/css/leptonContent.css");

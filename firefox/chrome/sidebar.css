@@ -1,0 +1,7 @@
+#sidebar,
+#sidebar-header,
+#sidebar-box {
+  overflow: hidden !important;
+  min-width: 100px !important;
+}
+
