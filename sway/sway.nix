@@ -1,6 +1,12 @@
 {pkgs, config, ...}:
 
 {
+
+  imports = [
+    ./waybar.nix
+    ./swaylock.nix
+  ];
+
   home.packages = with pkgs; [
     autotiling
     brightnessctl

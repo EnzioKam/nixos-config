@@ -3,14 +3,18 @@
 let
  
   wdisplays_overlay = (self: super: {
-    src = wdisplays-src;
+    wdisplays = super.wdisplays.overrideAttrs(old: {
+      src = wdisplays-src;
+    });
   });
 
 in
 
 {
 
-  nixpkgs.overlays = [ wdisplays_overlay ];
+  nixpkgs.overlays = [
+    wdisplays_overlay
+  ];
 
   imports = [
     ./alacritty/alacritty.nix
@@ -19,8 +23,6 @@ in
     ./rofi/rofi.nix
     ./starship.nix
     ./sway/sway.nix
-    ./sway/swaylock.nix
-    ./sway/waybar.nix
     ./zsh.nix
   ];
 
