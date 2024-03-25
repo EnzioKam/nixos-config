@@ -101,7 +101,19 @@
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
 
-  services.auto-cpufreq.enable = true;
+  programs.auto-cpufreq = {
+    enable = true;
+    settings = {
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+      battery = {
+        governor = "powersave";
+        turbo = "auto";
+      };
+    };
+  };
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;

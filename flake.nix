@@ -15,12 +15,18 @@
       url = "github:artizirk/wdisplays";
       flake = false;
     };
+
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     wdisplays-src,
+    auto-cpufreq,
     ...
   }:
   let
@@ -30,7 +36,11 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ];
+        specialArgs = { inherit auto-cpufreq; };
+        modules = [
+          ./configuration.nix
+          auto-cpufreq.nixosModules.default
+        ];
       };
     };
 
