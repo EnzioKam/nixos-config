@@ -6,7 +6,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      env.TERM = "alacritty";
+      # env.TERM = "alacritty";
       import = [ "~/.config/alacritty/theme.toml" ];
       key_bindings = [
         { key = "Return"; mods = "Control|Shift"; action = "SpawnNewInstance"; }
@@ -27,13 +27,13 @@
       };
       font = {
         normal = {
-          family = "FiraCode Nerd Font";
+          family = "JuliaMono";
         };
         bold = {
-          family = "FiraCode Nerd Font";
+          family = "JuliaMono";
         };
         italic = {
-          family = "FiraCode Nerd Font";
+          family = "JuliaMono";
         };
         size = 14.0;
         offset = {

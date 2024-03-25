@@ -19,6 +19,7 @@ in
   imports = [
     ./alacritty/alacritty.nix
     ./firefox/firefox.nix
+    ./foot.nix
     ./nvim/nvim.nix
     ./rofi/rofi.nix
     ./starship.nix
@@ -51,6 +52,7 @@ in
     gnumake
     imv
     julia-bin
+    julia-mono
     libreoffice-fresh
     networkmanagerapplet
     noto-fonts
@@ -79,7 +81,7 @@ in
     (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
   ];
   
-  xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=alacritty'';
+  xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=footclient'';
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

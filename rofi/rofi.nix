@@ -9,7 +9,7 @@
       modi = "run,drun,window";
       font = "DejaVuSansMono Nerd Font 12";
       show-icons = true;
-      terminal = "alacritty";
+      terminal = "footclient";
       drun-display-format = "{icon} {name}";
       disable-history = false;
       hide-scrollbar = true;

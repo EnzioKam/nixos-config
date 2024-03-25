@@ -37,7 +37,7 @@
     '';
     config = rec {
       modifier = "Mod4";
-      terminal = "alacritty";
+      terminal = "footclient";
       floating.border = 0;
       window.border = 0;
       menu = "rofi -show drun";
