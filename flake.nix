@@ -17,7 +17,7 @@
     };
 
     auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
+      url = "github:AdnanHodzic/auto-cpufreq/215026a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

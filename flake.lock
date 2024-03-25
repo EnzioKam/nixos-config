@@ -16,6 +16,7 @@
       },
       "original": {
         "owner": "AdnanHodzic",
+        "ref": "215026a",
         "repo": "auto-cpufreq",
         "type": "github"
       }
