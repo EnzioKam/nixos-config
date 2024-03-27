@@ -51,6 +51,7 @@
           format-critical = "󰔏 {temperatureC}°C";
           critical-threshold = 80;
           tooltip = false;
+          hwmon-path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp1_input";
         };
 
         cpu = {

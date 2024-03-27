@@ -170,8 +170,11 @@ in
       };
     };
     iconTheme = {
-      name = "Papirus-Dark-Maia";
-      package = pkgs.papirus-maia-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "mauve";
+      };
     };
     cursorTheme = {
       name = "Catppuccin-Mocha-Mauve";
@@ -179,7 +182,7 @@ in
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
-      gtk-icon-theme-name = "Papirus-Dark-Maia";
+      gtk-icon-theme-name = "Papirus-Dark";
       gtk-cursor-theme-name = "Catppuccin-Mocha-Mauve";
     };
   };
