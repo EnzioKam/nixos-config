@@ -59,12 +59,12 @@ require("Comment").setup({
   }
 })
 require("nvim-tree").setup()
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = "catppuccin",
     icons_enable = true
   }
-}
+})
 require("nvim-autopairs").setup()
 require("toggleterm").setup({
   open_mapping = [[<c-t>]]
