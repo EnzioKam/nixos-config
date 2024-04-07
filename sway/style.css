@@ -26,7 +26,8 @@ window#waybar.hidden {
 }
 
 tooltip {
-  background: @surface1;
+  background: @base;
+  opacity: 0.9;
 }
 
 tooltip label {
@@ -38,7 +39,7 @@ tooltip label {
   margin-left: 12px;
   margin-bottom: 4px;
   border-radius: 26px;
-  background: @surface1;
+  background: @base;
   color: @text;
   transition: none;
 }
@@ -126,8 +127,8 @@ tooltip label {
 }
 
 #clock {
-  color: @text;
-  background: @surface1;
+  color: @base;
+  background: @rosewater;
 }
 
 #battery {

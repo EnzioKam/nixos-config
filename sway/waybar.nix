@@ -91,10 +91,20 @@
 
         clock = {
           format = "{:%H:%M}";
-          format-alt = "{:%d %m %Y}";
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
+          format-alt = "{:%d/%m/%Y}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#f9e2af'><b>{}</b></span>";
+              days = "<span color='#f5c2e7'><b>{}</b></span>";
+              weeks = "<span color='#94e2d5'><b>W{}</b></span>";
+              weekdays = "<span color='#fab387'><b>{}</b></span>";
+              today = "<span color='#f38ba8'><b><u>{}</u></b></span>";
+            };
+          };
         };
       };
     };
