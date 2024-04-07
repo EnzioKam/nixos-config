@@ -30,8 +30,9 @@
     extraConfig = ''
       blur enable
       blur_xray disable
-      blur_passes 1
-      blur_radius 2
+      blur_passes 3
+      blur_radius 5
+      layer_effects "waybar" blur enable; shadows enable;
       corner_radius 10
       default_dim_inactive 0
     '';
@@ -94,7 +95,7 @@
       ];
       keybindings = 
         let  
-          vol-out = "pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK";
+          vol-out = "wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK";
           bright-out = "sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $WOBSOCK";
         in
           pkgs.lib.mkOptionDefault {
@@ -110,9 +111,9 @@
             "Mod1+Tab" = "exec rofi -show window";
             "Mod1+Control+Right" = "workspace next";
             "Mod1+Control+Left" = "workspace prev";
-            "XF86AudioRaiseVolume" =  "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && ${vol-out}";
-            "XF86AudioLowerVolume" =  "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && ${vol-out}";
-            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86AudioRaiseVolume" =  "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ${vol-out}";
+            "XF86AudioLowerVolume" =  "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ${vol-out}";
+            "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             "XF86MonBrightnessUp" = "exec brightnessctl set +5% | ${bright-out}";
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%- | ${bright-out}";
           };

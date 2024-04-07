@@ -146,17 +146,20 @@ in
     enable = true;
   };
 
-  services.mako = {
+  services.fnott = {
     enable = true;
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
-    borderColor = "#89b4fa";
-    progressColor = "over #313244";
-    font = "JetBrainsMono Nerd Font 10";
-    extraConfig = ''
-      [urgency=high]
-      border-color=#fab387
-    '';
+    settings = {
+      main = {
+        background = "1e1e2ecc";
+        border-color = "89b4faff";
+        title-font = "JetBrainsMono Nerd Font:size=10";
+        title-color = "cdd6f4ff";
+        body-font = "JetBrainsMono Nerd Font:size=10";
+        body-color = "cdd6f4ff";
+        progress-bar-color = "313244ff";
+        min-width = 300;
+      };
+    };
   };
 
   gtk = {

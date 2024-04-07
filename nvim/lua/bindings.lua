@@ -13,8 +13,6 @@ map("n", "<leader>b", ":FzfLua buffers<CR>")
 map("n", "<leader>h", ":FzfLua oldfiles<CR>")
 map("n", "<leader>f", ":FzfLua files<CR>")
 map("n", "<leader>l", ":FzfLua blines<CR>")
-map('n', "<leader>t", "<cmd>lua require(\"FTerm\").toggle()<CR>")
-map('t', "<leader>t", "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>")
 map("n", "<C-p>", ":CocCommand markdown-preview-enhanced.openPreview<CR>")
 map("n", "<leader>wi", "<Plug>VimwikiIndex")
 
@@ -25,7 +23,7 @@ map("n", "<C-k>", "<C-w>k", {noremap = true})
 map("n", "<C-l>", "<C-w>l", {noremap = true})
 
 -- Tab keybindings
-map("n", "<C-t>", ":tabnew<CR>", {noremap = true})
+map("n", "<leader>t", ":tabnew<CR>", {noremap = true})
 
 -- Original remappings from vim-better-default at
 -- https://github.com/liuchengxu/vim-better-default

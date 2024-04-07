@@ -32,6 +32,7 @@ require("catppuccin").setup({
     gitsigns = true,
     markdown = true,
     nvimtree = true,
+    rainbow_delimiters = true,
     treesitter = true,
     vimwiki = true,
     indent_blankline = {
@@ -65,8 +66,8 @@ require('lualine').setup {
   }
 }
 require("nvim-autopairs").setup()
-require("FTerm").setup({
-  dimensions = {height = 0.6, width = 0.6}
+require("toggleterm").setup({
+  open_mapping = [[<c-t>]]
 })
 require('colorizer').setup()
 
