@@ -43,43 +43,44 @@
       gaps = {
         inner = 15;
       };
-      /*
-      colors = let
-        fore = "#cdd6f4";
-        back = "#1e1e2e";
-        urge = "#f38ba8";
-      in {
-        background = fore;
+      colors = {
+        background = "$base";
         focused = {
-          border = fore;
-          background = fore;
-          text = back;
-          indicator = fore;
-          childBorder = fore;
+          border = "$lavender";
+          background = "$base";
+          text = "$text";
+          indicator = "$rosewater";
+          childBorder = "$lavender";
         };
         focusedInactive = {
-          border = back;
-          background = back;
-          text = fore;
-          indicator = back;
-          childBorder = back;
+          border = "$overlay0";
+          background = "$base";
+          text = "$text";
+          indicator = "$rosewater";
+          childBorder = "$overlay0";
         };
         unfocused = {
-          border = back;
-          background = back;
-          text = fore;
-          indicator = back;
-          childBorder = back;
+          border = "$overlay0";
+          background = "$base";
+          text = "$text";
+          indicator = "$rosewater";
+          childBorder = "$overlay0";
         };
         urgent = {
-          border = urge;
-          background = urge;
-          text = fore;
-          indicator = urge;
-          childBorder = urge;
+          border = "$peach";
+          background = "$base";
+          text = "$peach";
+          indicator = "$overlay0";
+          childBorder = "$peach";
+        };
+        placeholder = {
+          border = "$overlay0";
+          background = "$base";
+          text = "$text";
+          indicator = "$overlay0";
+          childBorder = "$overlay0";
         };
       };
-      */
       bars = [{
         command = "${pkgs.waybar}/bin/waybar";
         position = "top";
