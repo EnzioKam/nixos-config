@@ -1,17 +1,11 @@
-{pkgs, config, ...}:
+{ pkgs, ...}:
 
 {
-
-  imports = [
-    ./waybar.nix
-    ./swaylock.nix
-  ];
 
   home.packages = with pkgs; [
     autotiling
     brightnessctl
     libnotify
-    pulseaudio
     shotman
     swaybg
     wdisplays
@@ -23,6 +17,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    catppuccin.enable = true;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraConfig = ''
@@ -48,6 +43,7 @@
       gaps = {
         inner = 15;
       };
+      /*
       colors = let
         fore = "#cdd6f4";
         back = "#1e1e2e";
@@ -83,6 +79,7 @@
           childBorder = urge;
         };
       };
+      */
       bars = [{
         command = "${pkgs.waybar}/bin/waybar";
         position = "top";

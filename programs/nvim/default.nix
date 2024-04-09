@@ -4,6 +4,4 @@
     ./plugins.nix
     ./keymaps.nix
   ];
-
-  programs.nixvim.enable = true;
 }

@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
+
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq/215026a";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,9 +32,10 @@
   outputs = {
     nixpkgs,
     home-manager,
-    wdisplays-src,
-    auto-cpufreq,
     nixvim,
+    catppuccin,
+    auto-cpufreq,
+    wdisplays-src,
     ...
   }:
 
@@ -58,6 +61,7 @@
         modules = [
           ./home.nix
           nixvim.homeManagerModules.nixvim
+          catppuccin.homeManagerModules.catppuccin
         ];
       };
     };

@@ -1,14 +1,10 @@
-{pkgs, ...}:
-
 {
-  xdg.configFile."alacritty/theme.toml".source = ./catppuccin-mocha.yml;
-
   programs.alacritty = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       # env.TERM = "alacritty";
-      import = [ "~/.config/alacritty/theme.toml" ];
-      key_bindings = [
+      keyboard.bindings = [
         { key = "Return"; mods = "Control|Shift"; action = "SpawnNewInstance"; }
       ];
       window = {
@@ -23,7 +19,7 @@
           instance = "Alacritty";
           general = "Alacritty";
         };
-        opacity = 0.9;
+        opacity = 0.8;
       };
       font = {
         normal = {

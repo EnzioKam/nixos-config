@@ -1,5 +1,3 @@
-{pkgs, ... }:
-
 {
   programs.zsh = {
     enable = true;
@@ -8,11 +6,6 @@
         exec sway
       fi
     '';
-    sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      PF_INFO = "ascii title os host kernel uptime pkgs memory wm shell palette";
-    };
     initExtra = ''
       function osc7-pwd() {
         emulate -L zsh # also sets localoptions for us

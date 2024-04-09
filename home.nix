@@ -17,14 +17,7 @@ in
   ];
 
   imports = [
-    ./alacritty/alacritty.nix
-    ./firefox/firefox.nix
-    ./foot.nix
-    ./nvim
-    ./rofi/rofi.nix
-    ./starship.nix
-    ./sway/sway.nix
-    ./zsh.nix
+    ./programs
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -90,18 +83,35 @@ in
   home.stateVersion = "22.05";
 
   home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = 1;
-    XDG_CURRENT_DESKTOP = "sway"; 
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    PF_INFO = "ascii title os host kernel uptime pkgs memory wm shell palette";
     WOBSOCK = "$XDG_RUNTIME_DIR/wob.sock";
+    XDG_CURRENT_DESKTOP = "sway"; 
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.bat.enable = true;
-  programs.bottom.enable = true;
+  catppuccin.accent = "mauve";
+  catppuccin.flavour = "mocha";
+
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.bottom = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.imv = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
   programs.eza.enable = true;
-  programs.imv.enable = true;
 
   programs.git = {
     enable = true;
@@ -165,14 +175,12 @@ in
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Mauve-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
-        size = "compact";
-        variant = "mocha";
-      };
+    catppuccin = {
+      enable = true;
+      size = "compact";
+      cursor.enable = true;
     };
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -180,10 +188,7 @@ in
         accent = "mauve";
       };
     };
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Mauve";
-      package = pkgs.catppuccin-cursors.mochaMauve;
-    };
+
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
       gtk-icon-theme-name = "Papirus-Dark";
