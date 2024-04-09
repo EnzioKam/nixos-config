@@ -20,7 +20,7 @@ in
     ./alacritty/alacritty.nix
     ./firefox/firefox.nix
     ./foot.nix
-    ./nvim/nvim.nix
+    ./nvim
     ./rofi/rofi.nix
     ./starship.nix
     ./sway/sway.nix
@@ -37,20 +37,16 @@ in
   # Packages that should be intalled to the user profile
   home.packages = with pkgs; [
     bashmount
-    bat
     bc
     blueman
-    bottom
     brave
     clang-tools
     fd
-    fzf
     gcc
     gdb
     glib
     gnome.file-roller
     gnumake
-    imv
     julia-bin
     julia-mono
     libreoffice-fresh
@@ -102,10 +98,10 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
-  };
+  programs.bat.enable = true;
+  programs.bottom.enable = true;
+  programs.eza.enable = true;
+  programs.imv.enable = true;
 
   programs.git = {
     enable = true;
@@ -134,6 +130,11 @@ in
     config = {
       "page_separator_width" = "2";
     };
+  };
+
+  programs.fzf = {
+    enable = true;
+    defaultCommand = "fd -H";
   };
 
   services.gpg-agent = {

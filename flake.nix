@@ -3,22 +3,27 @@
 
   inputs = {
     # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq/215026a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     wdisplays-src = {
       url = "github:artizirk/wdisplays";
       flake = false;
-    };
-
-    auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq/215026a";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -27,8 +32,10 @@
     home-manager,
     wdisplays-src,
     auto-cpufreq,
+    nixvim,
     ...
   }:
+
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -48,7 +55,10 @@
       "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit wdisplays-src; };
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          nixvim.homeManagerModules.nixvim
+        ];
       };
     };
   };

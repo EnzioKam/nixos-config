@@ -83,7 +83,6 @@ opt.linespace = 5
 opt.list = true
 opt.mouse = "a"
 opt.number = true
-opt.number = true
 opt.pumheight = 20
 opt.report = 0
 opt.scrolloff = 4

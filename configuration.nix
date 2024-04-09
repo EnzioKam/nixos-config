@@ -56,16 +56,16 @@
   # services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
@@ -143,7 +143,7 @@
     glxinfo
     libva-utils
     lm_sensors
-    nvtop-amd
+    nvtopPackages.amd
   ];
 
   programs.wshowkeys.enable = true;

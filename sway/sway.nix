@@ -17,16 +17,14 @@
     wdisplays
     wl-clipboard
     wl-mirror
-    wob
   ];
+
+  services.wob.enable = true;
 
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
-    extraConfigEarly = ''
-      exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-    '';
     extraConfig = ''
       blur enable
       blur_xray disable
@@ -37,6 +35,7 @@
       default_dim_inactive 0
     '';
     config = rec {
+      defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
       terminal = "footclient";
       floating.border = 0;
