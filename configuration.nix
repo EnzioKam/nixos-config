@@ -17,6 +17,8 @@
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -205,10 +207,5 @@
       xdg-desktop-portal-gtk
     ];
     config.common.default = "*";
-  };
-
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
   };
 }

@@ -1,12 +1,14 @@
 {
   imports = [
     ./alacritty.nix
-    ./firefox
     ./foot.nix
+    ./misc.nix
+    ./services.nix
+    ./starship.nix
+    ./zsh.nix
+    ./firefox
     ./nvim
     ./rofi
-    ./starship.nix
     ./sway
-    ./zsh.nix
   ];
 }

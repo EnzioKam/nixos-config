@@ -93,6 +93,7 @@
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "year";
+            mode-mon-col = 3;
             on-scroll = 1;
             on-click-right = "mode";
             format = {
