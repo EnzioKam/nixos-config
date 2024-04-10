@@ -121,7 +121,7 @@ in
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "Catppuccin-Mocha-Mauve";
+      cursor-theme = "Catppuccin-Mocha-Mauve-Cursors";
     };
   };
 
