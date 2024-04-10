@@ -22,6 +22,7 @@
     shellAliases = {
       mirror = "wl-mirror eDP-1 & exit";
       hmu = "home-manager switch --flake '/home/enziokam/.config/home-manager/#enziokam@nixos'";
+      nrs = "sudo nixos-rebuild switch --flake '/home/enziokam/.config/home-manager/#nixos'";
     };
     prezto = {
       enable = true;

@@ -26,6 +26,7 @@
       blur_passes 3
       blur_radius 5
       layer_effects "waybar" blur enable; shadows enable;
+      layer_effects "notifications" blur enable; shadows enable;
       corner_radius 10
       default_dim_inactive 0
     '';
