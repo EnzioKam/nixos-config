@@ -1,9 +1,25 @@
+{ config, ... }:
+
 {
   programs.nixvim.extraConfigLua = ''
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    local handlers = require('nvim-autopairs.completion.handlers')
     cmp.event:on(
       'confirm_done',
-      cmp_autopairs.on_confirm_done()
+      cmp_autopairs.on_confirm_done({
+        filetypes = {
+          ["*"]= {
+            ["("] = {
+              kind = {
+                cmp.lsp.CompletionItemKind.Function,
+                cmp.lsp.CompletionItemKind.Method,
+                cmp.lsp.CompletionItemKind.Constructor
+              },
+              handler = handlers["*"]
+            }
+          }
+        }
+      })
     )
   '';
 
@@ -20,12 +36,15 @@
         sources = [
           { name = "path"; }
           { name = "nvim_lsp"; }
+          { name = "nvim_lsp_signature_help"; }
+          { name = "nvim_lua"; }
           { name = "luasnip"; }
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
         ];
+        experimental.ghost_text = true;
       };
     };
 
@@ -36,10 +55,12 @@
       fromVscode = [ { } ];
     };
 
-    nvim-jdtls = {
+    nvim-jdtls = let
+      home = "${config.home.homeDirectory}";
+    in {
       enable = true;
-      configuration = "/home/enziokam/.cache/jdtls/config";
-      data = "/home/enziokam/.cache/jdtls/workspace";
+      configuration = "${home}/.cache/jdtls/config";
+      data = "${home}/.cache/jdtls/workspace";
       settings = {
         java = {
           signatureHelp = {

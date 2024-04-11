@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 
 {
 
@@ -30,7 +30,9 @@
       corner_radius 10
       default_dim_inactive 0
     '';
-    config = rec {
+    config = let
+      wallpaper = "${config.home.homeDirectory}/.config/home-manager/wallpaper.png";
+    in rec {
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
       terminal = "footclient";
@@ -98,13 +100,16 @@
         in
           pkgs.lib.mkOptionDefault {
             "${modifier}+q" = "kill";
-            "${modifier}+Shift+q" = 
-            "exec rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout\"";
+            "${modifier}+Shift+q" = ''
+            exec rofi -show power-menu \
+              -modi 'power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout' \
+              -theme-str 'window { width: 15%; } listview { lines: 6; }'
+            '';
             "${modifier}+Shift+r" = "reload";
             "${modifier}+space" = "floating toggle";
             "${modifier}+p" = "move workspace to output right";
             "${modifier}+o" = "move workspace to output left";
-            "${modifier}+l" = "exec swaylock";
+            "${modifier}+l" = "exec swaylock --image ${wallpaper}";
             "${modifier}+s" = "exec shotman --capture region";
             "Mod1+Tab" = "exec rofi -show window";
             "Mod1+Control+Right" = "workspace next";
@@ -122,7 +127,7 @@
       };
       output = {
         "*" = {
-          bg = "~/.config/home-manager/wallpaper.png fill";
+          bg = "${wallpaper} fill";
         };
       };
     };

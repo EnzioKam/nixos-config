@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   programs.zsh = {
     enable = true;
@@ -19,10 +21,12 @@
       }
       add-zsh-hook -Uz chpwd chpwd-osc7-pwd
     '';
-    shellAliases = {
+    shellAliases = let
+      home = "${config.home.homeDirectory}";
+    in {
       mirror = "wl-mirror eDP-1 & exit";
-      hmu = "home-manager switch --flake '/home/enziokam/.config/home-manager/#enziokam@nixos'";
-      nrs = "sudo nixos-rebuild switch --flake '/home/enziokam/.config/home-manager/#nixos'";
+      hmu = "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
+      nrs = "sudo nixos-rebuild switch --flake '${home}/.config/home-manager/#nixos'";
     };
     prezto = {
       enable = true;
