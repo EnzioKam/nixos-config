@@ -1,6 +1,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./cli.nix
     ./foot.nix
     ./misc.nix
     ./services.nix
