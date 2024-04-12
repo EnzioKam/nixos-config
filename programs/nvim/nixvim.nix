@@ -4,9 +4,7 @@
     viAlias = true;
     vimAlias = true;
 
-    globals = {
-      mapleader = " ";
-    };
+    globals = { mapleader = " "; };
 
     opts = {
       backspace = "2";

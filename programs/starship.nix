@@ -18,38 +18,20 @@
         success_symbol = "[➜](bold green)";
         error_symbol = "[✗](bold red)";
       };
-      package = {
-        symbol = "󰏗 ";
-      };
+      package = { symbol = "󰏗 "; };
       time = {
         disabled = false;
-        format = "[\[ $time \]]($style) ";
+        format = "[[ $time ]]($style) ";
         utc_time_offset = "+8";
       };
-      directory = {
-        read_only = " 󰌾";
-      };
-      git_branch = {
-        symbol = " ";
-      };
-      c = {
-        symbol = " ";
-      };
-      java = {
-        symbol = " ";
-      };
-      python = {
-        symbol = " ";
-      };
-      julia = {
-        symbol = " ";
-      };
-      lua = {
-        symbol = " ";
-      };
-      memory_usage = {
-        symbol = "󰍛 ";
-      };
+      directory = { read_only = " 󰌾"; };
+      git_branch = { symbol = " "; };
+      c = { symbol = " "; };
+      java = { symbol = " "; };
+      python = { symbol = " "; };
+      julia = { symbol = " "; };
+      lua = { symbol = " "; };
+      memory_usage = { symbol = "󰍛 "; };
     };
   };
 }

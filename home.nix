@@ -1,24 +1,16 @@
 { config, pkgs, wdisplays-src, ... }:
 
 let
- 
+
   wdisplays_overlay = (self: super: {
-    wdisplays = super.wdisplays.overrideAttrs(old: {
-      src = wdisplays-src;
-    });
+    wdisplays = super.wdisplays.overrideAttrs (old: { src = wdisplays-src; });
   });
 
-in
+in {
 
-{
+  nixpkgs.overlays = [ wdisplays_overlay ];
 
-  nixpkgs.overlays = [
-    wdisplays_overlay
-  ];
-
-  imports = [
-    ./programs
-  ];
+  imports = [ ./programs ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -27,7 +19,7 @@ in
 
   fonts.fontconfig.enable = true;
 
-  # Packages that should be intalled to the user profile
+  # Packages that should be installed to the user profile
   home.packages = with pkgs; [
     bashmount
     bc
@@ -56,7 +48,6 @@ in
     python311
     qpdfview
     ripgrep
-    rofi-power-menu
     sysfsutils
     texlive.combined.scheme-medium
     unzip
@@ -67,10 +58,12 @@ in
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     zip
-    (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono" "DejaVuSansMono"]; })
+    (nerdfonts.override {
+      fonts = [ "FiraCode" "JetBrainsMono" "DejaVuSansMono" ];
+    })
   ];
-  
-  xdg.configFile."xfce4/helpers.rc".text = ''TerminalEmulator=footclient'';
+
+  xdg.configFile."xfce4/helpers.rc".text = "TerminalEmulator=footclient";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -87,7 +80,7 @@ in
     VISUAL = "nvim";
     PF_INFO = "ascii title os host kernel uptime pkgs memory wm shell palette";
     WOBSOCK = "$XDG_RUNTIME_DIR/wob.sock";
-    XDG_CURRENT_DESKTOP = "sway"; 
+    XDG_CURRENT_DESKTOP = "sway";
   };
 
   # Let Home Manager install and manage itself.

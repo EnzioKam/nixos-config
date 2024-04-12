@@ -29,41 +29,31 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nixvim,
-    catppuccin,
-    auto-cpufreq,
-    wdisplays-src,
-    ...
-  }:
+  outputs = { nixpkgs, home-manager, nixvim, catppuccin, auto-cpufreq
+    , wdisplays-src, ... }:
 
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-  in {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit auto-cpufreq; };
-        modules = [
-          ./configuration.nix
-          auto-cpufreq.nixosModules.default
-        ];
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit auto-cpufreq; };
+          modules = [ ./configuration.nix auto-cpufreq.nixosModules.default ];
+        };
+      };
+
+      homeConfigurations = {
+        "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit wdisplays-src; };
+          modules = [
+            ./home.nix
+            nixvim.homeManagerModules.nixvim
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        };
       };
     };
-
-    homeConfigurations = {
-      "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit wdisplays-src; };
-        modules = [
-          ./home.nix
-          nixvim.homeManagerModules.nixvim
-          catppuccin.homeManagerModules.catppuccin
-        ];
-      };
-    };
-  };
 }

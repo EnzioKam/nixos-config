@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
 
@@ -31,7 +31,8 @@
       default_dim_inactive 0
     '';
     config = let
-      wallpaper = "${config.home.homeDirectory}/.config/home-manager/wallpaper.png";
+      wallpaper =
+        "${config.home.homeDirectory}/.config/home-manager/wallpaper.png";
     in rec {
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
@@ -40,12 +41,10 @@
       window.border = 0;
       menu = "rofi -show drun";
       fonts = {
-        names = ["JetBrainsMono Nerd Font"];
+        names = [ "JetBrainsMono Nerd Font" ];
         size = 12.0;
       };
-      gaps = {
-        inner = 15;
-      };
+      gaps = { inner = 15; };
       colors = {
         background = "$base";
         focused = {
@@ -93,43 +92,38 @@
         { command = "autotiling"; }
         { command = "sleep 5; systemctl --user start kanshi.service"; }
       ];
-      keybindings = 
-        let  
-          vol-out = "wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK";
-          bright-out = "sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $WOBSOCK";
-        in
-          pkgs.lib.mkOptionDefault {
-            "${modifier}+q" = "kill";
-            "${modifier}+Shift+q" = ''
-            exec rofi -show power-menu \
-              -modi 'power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout' \
-              -theme-str 'window { width: 15%; } listview { lines: 6; }'
-            '';
-            "${modifier}+Shift+r" = "reload";
-            "${modifier}+space" = "floating toggle";
-            "${modifier}+p" = "move workspace to output right";
-            "${modifier}+o" = "move workspace to output left";
-            "${modifier}+l" = "exec swaylock --image ${wallpaper}";
-            "${modifier}+s" = "exec shotman --capture region";
-            "Mod1+Tab" = "exec rofi -show window";
-            "Mod1+Control+Right" = "workspace next";
-            "Mod1+Control+Left" = "workspace prev";
-            "XF86AudioRaiseVolume" =  "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ${vol-out}";
-            "XF86AudioLowerVolume" =  "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ${vol-out}";
-            "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-            "XF86MonBrightnessUp" = "exec brightnessctl set +5% | ${bright-out}";
-            "XF86MonBrightnessDown" = "exec brightnessctl set 5%- | ${bright-out}";
-          };
+      keybindings = let
+        vol-out =
+          "wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK";
+        bright-out = "sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $WOBSOCK";
+      in pkgs.lib.mkOptionDefault {
+        "${modifier}+q" = "kill";
+        "${modifier}+Shift+q" = ''
+          exec rofi -show power-menu \
+            -modi 'power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout' \
+            -theme-str 'window { width: 15%; } listview { lines: 6; }'
+        '';
+        "${modifier}+Shift+r" = "reload";
+        "${modifier}+space" = "floating toggle";
+        "${modifier}+p" = "move workspace to output right";
+        "${modifier}+o" = "move workspace to output left";
+        "${modifier}+l" = "exec swaylock --image ${wallpaper}";
+        "${modifier}+s" = "exec shotman --capture region";
+        "Mod1+Tab" = "exec rofi -show window";
+        "Mod1+Control+Right" = "workspace next";
+        "Mod1+Control+Left" = "workspace prev";
+        "XF86AudioRaiseVolume" =
+          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ${vol-out}";
+        "XF86AudioLowerVolume" =
+          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ${vol-out}";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86MonBrightnessUp" = "exec brightnessctl set +5% | ${bright-out}";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 5%- | ${bright-out}";
+      };
       input = {
-        "1:1:AT_Translated_Set_2_keyboard" = {
-          xkb_options = "ctrl:swapcaps";
-        };
+        "1:1:AT_Translated_Set_2_keyboard" = { xkb_options = "ctrl:swapcaps"; };
       };
-      output = {
-        "*" = {
-          bg = "${wallpaper} fill";
-        };
-      };
+      output = { "*" = { bg = "${wallpaper} fill"; }; };
     };
   };
 }

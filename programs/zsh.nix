@@ -21,25 +21,20 @@
       }
       add-zsh-hook -Uz chpwd chpwd-osc7-pwd
     '';
-    shellAliases = let
-      home = "${config.home.homeDirectory}";
+    shellAliases = let home = "${config.home.homeDirectory}";
     in {
       mirror = "wl-mirror eDP-1 & exit";
-      hmu = "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
-      nrs = "sudo nixos-rebuild switch --flake '${home}/.config/home-manager/#nixos'";
+      hmu =
+        "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
+      nrs =
+        "sudo nixos-rebuild switch --flake '${home}/.config/home-manager/#nixos'";
     };
     prezto = {
       enable = true;
       caseSensitive = true;
       color = true;
-      extraModules = [
-        "attr"
-        "stat"
-      ];
-      extraFunctions = [
-        "zargs"
-        "zmv"
-      ];
+      extraModules = [ "attr" "stat" ];
+      extraFunctions = [ "zargs" "zmv" ];
       pmodules = [
         "environment"
         "terminal"
@@ -54,16 +49,8 @@
       ];
       utility.safeOps = false;
       syntaxHighlighting = {
-        highlighters = [
-          "main"
-          "brackets"
-          "pattern"
-          "line"
-          "root"
-        ];
-        pattern = {
-          "rm*-rf*" = "fg=red,bold,underline";
-        };
+        highlighters = [ "main" "brackets" "pattern" "line" "root" ];
+        pattern = { "rm*-rf*" = "fg=red,bold,underline"; };
       };
     };
   };

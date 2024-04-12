@@ -5,14 +5,8 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = [
-          "sway/workspaces"
-          "sway/mode"
-        ];
-        modules-center = [
-          "tray"
-          "clock"
-        ];
+        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-center = [ "tray" "clock" ];
         modules-right = [
           "network"
           "pulseaudio"
@@ -23,7 +17,7 @@
           "backlight"
           "battery"
         ];
-  
+
         tray = {
           icon-size = 20;
           spacing = 10;
@@ -39,7 +33,7 @@
         pulseaudio = {
           format = "{icon} {volume}%";
           format-muted = "󰖁";
-          format-icons = ["" "" ""];
+          format-icons = [ "" "" "" ];
           scroll-step = 5;
           tooltip = false;
         };
@@ -71,7 +65,7 @@
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent}%";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
+          format-icons = [ "" "" "" "" "" "" "" "" "" ];
           tooltip = false;
         };
 
@@ -83,7 +77,7 @@
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}%";
           format-plugged = "󰂄 {capacity}%";
-          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           tooltip = false;
         };
 
@@ -111,6 +105,5 @@
     style = builtins.readFile ./style.css;
   };
 
-  xdg.configFile."waybar/mocha.css".text =
-    builtins.readFile ./mocha.css;
+  xdg.configFile."waybar/mocha.css".text = builtins.readFile ./mocha.css;
 }

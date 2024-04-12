@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.rofi = {
@@ -18,6 +18,8 @@
       sidebar-mode = true;
     };
   };
+
+  home.packages = with pkgs; [ rofi-power-menu ];
 
   xdg.configFile."rofi/catppuccin-mocha.rasi".source = ./catppuccin-mocha.rasi;
 }

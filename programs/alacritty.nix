@@ -4,9 +4,11 @@
     catppuccin.enable = true;
     settings = {
       # env.TERM = "alacritty";
-      keyboard.bindings = [
-        { key = "Return"; mods = "Control|Shift"; action = "SpawnNewInstance"; }
-      ];
+      keyboard.bindings = [{
+        key = "Return";
+        mods = "Control|Shift";
+        action = "SpawnNewInstance";
+      }];
       window = {
         padding = {
           x = 15;
@@ -22,15 +24,9 @@
         opacity = 0.8;
       };
       font = {
-        normal = {
-          family = "JuliaMono";
-        };
-        bold = {
-          family = "JuliaMono";
-        };
-        italic = {
-          family = "JuliaMono";
-        };
+        normal = { family = "JuliaMono"; };
+        bold = { family = "JuliaMono"; };
+        italic = { family = "JuliaMono"; };
         size = 14.0;
         offset = {
           x = 0;

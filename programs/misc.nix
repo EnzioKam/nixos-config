@@ -48,8 +48,6 @@
 
   programs.sioyek = {
     enable = true;
-    config = {
-      "page_separator_width" = "2";
-    };
+    config = { "page_separator_width" = "2"; };
   };
 }

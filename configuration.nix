@@ -5,10 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-  [
-    ./hardware
-  ];
+  imports = [ ./hardware ];
 
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
@@ -25,9 +22,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "amd_pstate=active"
-  ];
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -123,7 +118,7 @@
     isNormalUser = true;
     description = "Enzio Kam Hai Hong";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "video"];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     # packages = with pkgs; [
     #  firefox
     #  thunderbird
@@ -202,10 +197,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
     config.common.default = "*";
   };
 }

@@ -8,9 +8,7 @@
       transparentBackground = true;
       integrations = {
         vimwiki = true;
-        indent_blankline = {
-          scope_color = "lavender";
-        };
+        indent_blankline = { scope_color = "lavender"; };
       };
     };
 
@@ -86,9 +84,11 @@
 
     globals = {
       latex_to_unicode_auto = 1;
-      vimwiki_list = [
-        { path = "~/vimwiki/"; syntax = "markdown"; ext = ".md"; }
-      ];
+      vimwiki_list = [{
+        path = "~/vimwiki/";
+        syntax = "markdown";
+        ext = ".md";
+      }];
       vimwiki_global_ext = 0;
     };
   };

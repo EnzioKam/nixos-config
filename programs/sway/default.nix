@@ -1,8 +1,1 @@
-{
-  imports = [
-    ./sway.nix
-    ./swayidle.nix
-    ./swaylock.nix
-    ./waybar.nix
-  ];
-}
+{ imports = [ ./sway.nix ./swayidle.nix ./swaylock.nix ./waybar.nix ]; }
