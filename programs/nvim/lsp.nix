@@ -1,33 +1,10 @@
-{ config, ... }:
-
-{
-  programs.nixvim.extraConfigLua = ''
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local handlers = require('nvim-autopairs.completion.handlers')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done({
-        filetypes = {
-          ["*"]= {
-            ["("] = {
-              kind = {
-                cmp.lsp.CompletionItemKind.Function,
-                cmp.lsp.CompletionItemKind.Method,
-                cmp.lsp.CompletionItemKind.Constructor
-              },
-              handler = handlers["*"]
-            }
-          }
-        }
-      })
-    )
-  '';
-
+{ config, pkgs, ... }: {
   programs.nixvim.plugins = {
     cmp = {
       enable = true;
       settings = {
-        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        snippet.expand =
+          "function(args) require('luasnip').lsp_expand(args.body) end";
         mapping = {
           "<tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           "<s-tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
@@ -55,8 +32,7 @@
       fromVscode = [ { } ];
     };
 
-    nvim-jdtls = let
-      home = "${config.home.homeDirectory}";
+    nvim-jdtls = let home = "${config.home.homeDirectory}";
     in {
       enable = true;
       configuration = "${home}/.cache/jdtls/config";
@@ -100,5 +76,31 @@
         taplo.enable = true;
       };
     };
+
+    conform-nvim = {
+      enable = true;
+      formattersByFt = {
+        "*" = [ "codespell" ];
+        "_" = [ "trim_whitespace" ];
+        lua = [ "stylua" ];
+        nix = [ "nixfmt" ];
+        python = [ "isort" "black" ];
+        markdown = [ "mdformat" ];
+      };
+      formatOnSave = {
+        lspFallback = true;
+        timeoutMs = 500;
+      };
+    };
   };
+
+  home.packages = with pkgs; [
+    alejandra
+    black
+    codespell
+    isort
+    mdformat
+    nixfmt-classic
+    stylua
+  ];
 }

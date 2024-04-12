@@ -77,6 +77,7 @@
     };
 
     extraPlugins = with pkgs.vimPlugins; [
+      glow-nvim
       julia-vim
       nvim-scrollview
       vim-nix
