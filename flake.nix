@@ -35,6 +35,10 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      flake-modules = [
+        nixvim.homeManagerModules.nixvim
+        catppuccin.homeManagerModules.catppuccin
+      ];
     in {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
@@ -48,11 +52,12 @@
         "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit wdisplays-src; };
-          modules = [
-            ./home.nix
-            nixvim.homeManagerModules.nixvim
-            catppuccin.homeManagerModules.catppuccin
-          ];
+          modules = flake-modules ++ [ ./home.nix ];
+        };
+
+        "enziokam@DESKTOP-SABAJRC" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = flake-modules ++ [ ./wsl.nix ];
         };
       };
     };

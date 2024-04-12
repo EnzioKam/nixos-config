@@ -100,7 +100,7 @@
     codespell
     isort
     mdformat
-    nixfmt-classic
+    nixfmt
     stylua
   ];
 }
