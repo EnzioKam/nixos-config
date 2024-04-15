@@ -119,6 +119,10 @@
         "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86MonBrightnessUp" = "exec brightnessctl set +5% | ${bright-out}";
         "XF86MonBrightnessDown" = "exec brightnessctl set 5%- | ${bright-out}";
+        "${modifier}+bracketleft" =
+          "exec brightnessctl -d 'tpacpi::kbd_backlight' s 1-";
+        "${modifier}+bracketright" =
+          "exec brightnessctl -d 'tpacpi::kbd_backlight' s +1";
       };
       input = {
         "1:1:AT_Translated_Set_2_keyboard" = { xkb_options = "ctrl:swapcaps"; };

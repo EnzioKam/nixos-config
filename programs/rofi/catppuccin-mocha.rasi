@@ -17,10 +17,13 @@ element-text, element-icon , mode-switcher {
   text-color:       inherit;
 }
 
+window {
+  border-color: @border-col;
+  background-color: @bg-col;
+}
+
 mainbox {
   background-color: @bg-col;
-  border-color: @border-col;
-  border: 4px;
 }
 
 inputbar {
@@ -82,12 +85,26 @@ button {
   padding: 10px;
   background-color: @bg-col-light;
   text-color: @grey;
-  vertical-align: 0.5; 
+  vertical-align: 0.5;
   horizontal-align: 0.5;
 }
 
 button selected {
   background-color: @bg-col;
   text-color: @blue;
+}
+
+message {
+  background-color: @bg-col-light;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+textbox {
+  padding: 6px;
+  margin: 20px 0px 0px 20px;
+  text-color: @blue;
+  background-color: @bg-col-light;
 }
 

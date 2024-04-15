@@ -15,6 +15,7 @@
       hide-scrollbar = true;
       display-drun = "   Apps ";
       display-run = "   Run ";
+      display-window = " 󱂬  Window ";
       sidebar-mode = true;
     };
   };
