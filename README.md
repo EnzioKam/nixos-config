@@ -16,3 +16,4 @@ Personal configuration for [NixOS](https://nixos.org/) with
 | Notifications  | [fnott](https://codeberg.org/dnkl/fnott)                   |
 | Launcher       | [Rofi (Wayland fork)](https://github.com/lbonn/rofi)       |
 | Editor         | Neovim ([NixVim](https://github.com/nix-community/nixvim)) |
+| Wallpaper      | [Wallhaven](https://wallhaven.cc/w/p9x1ee)

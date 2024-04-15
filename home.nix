@@ -42,7 +42,7 @@ in {
     noto-fonts-emoji
     openfortivpn
     pavucontrol
-    pfetch
+    pfetch-rs
     polkit_gnome
     powertop
     python311
@@ -62,8 +62,6 @@ in {
       fonts = [ "FiraCode" "JetBrainsMono" "DejaVuSansMono" ];
     })
   ];
-
-  xdg.configFile."xfce4/helpers.rc".text = "TerminalEmulator=footclient";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -118,9 +116,13 @@ in {
     };
   };
 
-  xdg.systemDirs.data = [
-    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
-  ];
+  xdg = {
+    enable = true;
+    configFile."xfce4/helpers.rc".text = "TerminalEmulator=footclient";
+    systemDirs.data = [
+      "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+      "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+    ];
+  };
 
 }

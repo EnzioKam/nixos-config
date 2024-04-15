@@ -43,7 +43,6 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit auto-cpufreq; };
           modules = [ ./configuration.nix auto-cpufreq.nixosModules.default ];
         };
       };
