@@ -4,11 +4,13 @@
   programs.nixvim = {
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
-      transparentBackground = true;
-      integrations = {
-        vimwiki = true;
-        indent_blankline = { scope_color = "lavender"; };
+      settings = {
+        flavour = "mocha";
+        transparent_background = true;
+        integrations = {
+          vimwiki = true;
+          indent_blankline = { scope_color = "lavender"; };
+        };
       };
     };
 
@@ -69,7 +71,7 @@
       rainbow-delimiters.enable = true;
       toggleterm = {
         enable = true;
-        openMapping = "<c-t>";
+        settings.open_mapping = "[[<c-t>]]";
       };
       treesitter.enable = true;
     };
