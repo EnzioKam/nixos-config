@@ -91,6 +91,7 @@
         { command = "systemctl --user import-environment"; }
         { command = "autotiling"; }
         { command = "sleep 5; systemctl --user start kanshi.service"; }
+        { command = "foot --server"; }
       ];
       keybindings = let
         vol-out =
