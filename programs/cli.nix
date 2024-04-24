@@ -23,6 +23,10 @@
     enable = true;
     userName = "EnzioKam";
     userEmail = "enziokamhh@gmail.com";
+    delta = {
+      enable = true;
+      catppuccin.enable = true;
+    };
   };
 
   programs.java = {

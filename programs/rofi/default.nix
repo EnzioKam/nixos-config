@@ -4,10 +4,23 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    theme = "~/.config/rofi/catppuccin-mocha.rasi";
+    catppuccin.enable = true;
+
+    theme = {
+      "*" = {
+        border-col = "#cdd6f4";
+        width = 900;
+        font = "DejaVuSansMono Nerd Font 12";
+      };
+      "window" = { height = 580; };
+      "listview" = {
+        columns = 3;
+        lines = 12;
+      };
+    };
+
     extraConfig = {
       modi = "run,drun,window";
-      font = "DejaVuSansMono Nerd Font 12";
       show-icons = true;
       terminal = "footclient";
       drun-display-format = "{icon} {name}";
@@ -21,6 +34,4 @@
   };
 
   home.packages = with pkgs; [ rofi-power-menu ];
-
-  xdg.configFile."rofi/catppuccin-mocha.rasi".source = ./catppuccin-mocha.rasi;
 }

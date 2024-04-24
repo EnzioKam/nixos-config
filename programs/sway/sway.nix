@@ -13,7 +13,19 @@
     wl-mirror
   ];
 
-  services.wob.enable = true;
+  services.wob = {
+    enable = true;
+    settings = {
+      "" = {
+        border_color = "b4befe";
+        background_color = "1e1e2e";
+        bar_color = "cdd6f4";
+        overflow_bar_color = "f38ba8";
+        overflow_background_color = "1e1e2e";
+        overflow_border_color = "b4befe";
+      };
+    };
+  };
 
   wayland.windowManager.sway = {
     enable = true;
