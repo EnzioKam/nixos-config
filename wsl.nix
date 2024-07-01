@@ -13,12 +13,10 @@
 
   home.stateVersion = "23.11";
 
-  home.packages = with pkgs; [
-    ripgrep
-  ];
+  home.packages = with pkgs; [ ripgrep ];
 
   programs.home-manager.enable = true;
 
   catppuccin.accent = "mauve";
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
 }

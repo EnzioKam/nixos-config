@@ -28,6 +28,9 @@
   };
 
   wayland.windowManager.sway = {
+    # Workaround for https://github.com/nix-community/home-manager/issues/5379
+    checkConfig = false;
+
     enable = true;
     catppuccin.enable = true;
     package = pkgs.swayfx;
@@ -114,7 +117,7 @@
         "${modifier}+Shift+q" = ''
           exec rofi -show power-menu \
             -modi 'power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/hibernate/logout' \
-            -theme-str 'window { width: 15%; } listview { lines: 6; }'
+            -theme-str 'window { width: 15%; height: 35%; } listview { lines: 6; }'
         '';
         "${modifier}+Shift+r" = "reload";
         "${modifier}+space" = "floating toggle";

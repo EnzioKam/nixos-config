@@ -1,6 +1,7 @@
 {
   programs.waybar = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       mainBar = {
         layer = "top";
@@ -104,6 +105,4 @@
 
     style = builtins.readFile ./style.css;
   };
-
-  xdg.configFile."waybar/mocha.css".text = builtins.readFile ./mocha.css;
 }

@@ -84,23 +84,19 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  catppuccin.accent = "mauve";
-  catppuccin.flavour = "mocha";
+  catppuccin = {
+    accent = "mauve";
+    flavor = "mocha";
+    pointerCursor.enable = true;
+  };
 
   gtk = {
     enable = true;
     catppuccin = {
       enable = true;
       size = "compact";
-      cursor.enable = true;
-    };
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "mauve";
-      };
+      # cursor.enable = true;
+      icon.enable = true;
     };
 
     gtk3.extraConfig = {

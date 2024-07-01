@@ -189,10 +189,11 @@
 
   # Hardware Support for Wayland Sway
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
+      enable32Bit = true;
     };
+    amdgpu = { initrd.enable = true; };
   };
 
   xdg.portal = {
