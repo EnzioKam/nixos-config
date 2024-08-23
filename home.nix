@@ -95,7 +95,7 @@ in {
     catppuccin.icon.enable = true;
 
     theme = {
-      name = "Colloid-Purple-Catppuccin";
+      name = "Colloid-Purple-Dark-Catppuccin";
       package = pkgs.colloid-gtk-theme.override {
         tweaks = [ "catppuccin" "black" ];
         themeVariants = [ "purple" ];
@@ -103,6 +103,7 @@ in {
     };
 
     gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
+    gtk4.extraConfig = { gtk-application-prefer-dark-theme = true; };
   };
 
   xdg = {
