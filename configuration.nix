@@ -74,7 +74,6 @@
   services.fstrim.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -187,7 +186,8 @@
     session required pam_unix.so
   '';
 
-  # Hardware Support for Wayland Sway
+  services.xserver.videoDrivers = [ "modesetting" ];
+
   hardware = {
     graphics = {
       enable = true;

@@ -19,7 +19,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq/215026a";
+      url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -30,7 +30,7 @@ in {
     gcc
     gdb
     glib
-    gnome.file-roller
+    file-roller
     gnumake
     julia-bin
     julia-mono
@@ -92,24 +92,17 @@ in {
 
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      size = "compact";
-      # cursor.enable = true;
-      icon.enable = true;
+    catppuccin.icon.enable = true;
+
+    theme = {
+      name = "Colloid-Purple-Catppuccin";
+      package = pkgs.colloid-gtk-theme.override {
+        tweaks = [ "catppuccin" "black" ];
+        themeVariants = [ "purple" ];
+      };
     };
 
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-icon-theme-name = "Papirus-Dark";
-      gtk-cursor-theme-name = "Catppuccin-Mocha-Mauve";
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      cursor-theme = "Catppuccin-Mocha-Mauve-Cursors";
-    };
+    gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
   };
 
   xdg = {
