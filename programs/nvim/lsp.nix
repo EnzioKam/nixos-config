@@ -79,23 +79,25 @@
 
     conform-nvim = {
       enable = true;
-      formattersByFt = {
-        "*" = [ "codespell" ];
-        "_" = [ "trim_whitespace" ];
-        lua = [ "stylua" ];
-        nix = [ "nixfmt" ];
-        python = [ "isort" "black" ];
-        markdown = [ "mdformat" ];
-      };
-      formatOnSave = ''
-        function(bufnr)
+      settings = {
+        formatters_by_ft = {
+          "*" = [ "codespell" ];
+          "_" = [ "trim_whitespace" ];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          python = [ "isort" "black" ];
+          markdown = [ "mdformat" ];
+        };
+        format_on_save = ''
+          function(bufnr)
             -- Disable with a global or buffer-local variable
             if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
               return
             end
             return { timeout_ms = 500, lsp_fallback = true }
           end
-      '';
+        '';
+      };
     };
   };
 
