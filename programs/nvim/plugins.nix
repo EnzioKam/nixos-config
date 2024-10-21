@@ -74,6 +74,7 @@
         settings.open_mapping = "[[<c-t>]]";
       };
       treesitter.enable = true;
+      web-devicons.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [

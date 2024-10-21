@@ -32,7 +32,7 @@ in {
     glib
     file-roller
     gnumake
-    julia-bin
+    julia
     julia-mono
     libreoffice-fresh
     networkmanagerapplet

@@ -65,8 +65,11 @@
       };
 
       servers = {
-        julials.enable = true;
-        lua-ls = {
+        julials = {
+          enable = true;
+          package = null;
+        };
+        lua_ls = {
           enable = true;
           extraOptions.settings.Lua.completion.callSnippet = "Replace";
         };
