@@ -35,6 +35,9 @@ in {
     julia
     julia-mono
     libreoffice-fresh
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
     networkmanagerapplet
     noto-fonts
     noto-fonts-cjk-sans
@@ -58,9 +61,6 @@ in {
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     zip
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "JetBrainsMono" "DejaVuSansMono" ];
-    })
   ];
 
   # This value determines the Home Manager release that your
