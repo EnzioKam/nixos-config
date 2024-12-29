@@ -1,8 +1,9 @@
 {
+  catppuccin.foot.enable = true;
+
   programs.foot = {
     enable = true;
     server.enable = true;
-    catppuccin.enable = true;
     settings = {
       main = {
         font = "JuliaMono:size=14,FiraCode Nerd Font:size=14";

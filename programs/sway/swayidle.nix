@@ -5,7 +5,7 @@
     enable = true;
     systemdTarget = "sway-session.target";
     timeouts = [{
-      timeout = 600;
+      timeout = 900;
       command = "${pkgs.systemd}/bin/systemctl suspend";
     }];
   };

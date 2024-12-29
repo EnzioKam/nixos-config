@@ -27,12 +27,13 @@
     };
   };
 
+  catppuccin.sway.enable = true;
+
   wayland.windowManager.sway = {
     # Workaround for https://github.com/nix-community/home-manager/issues/5379
     checkConfig = false;
 
     enable = true;
-    catppuccin.enable = true;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraConfig = ''

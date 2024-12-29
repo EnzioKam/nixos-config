@@ -1,12 +1,13 @@
 {
-  programs.imv = {
-    enable = true;
-    catppuccin.enable = true;
+  catppuccin = {
+    imv.enable = true;
+    mpv.enable = true;
   };
+
+  programs.imv.enable = true;
 
   programs.mpv = {
     enable = true;
-    catppuccin.enable = true;
     config = {
       profile = "gpu-hq";
       ao = "pipewire";

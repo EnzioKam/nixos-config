@@ -1,21 +1,19 @@
 { pkgs, ... }:
 
 {
-  programs.bat = {
-    enable = true;
-    catppuccin.enable = true;
+  catppuccin = {
+    bat.enable = true;
+    bottom.enable = true;
+    fzf.enable = true;
+    delta.enable = true;
   };
 
-  programs.bottom = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
+  programs.bat.enable = true;
+  programs.bottom.enable = true;
   programs.eza.enable = true;
 
   programs.fzf = {
     enable = true;
-    catppuccin.enable = true;
     defaultCommand = "fd -H";
   };
 
@@ -23,10 +21,7 @@
     enable = true;
     userName = "EnzioKam";
     userEmail = "enziokamhh@gmail.com";
-    delta = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    delta.enable = true;
   };
 
   programs.java = {

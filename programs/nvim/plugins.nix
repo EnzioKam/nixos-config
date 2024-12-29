@@ -66,7 +66,7 @@
       indent-blankline.enable = true;
       lualine.enable = true;
       nvim-autopairs.enable = true;
-      nvim-colorizer.enable = true;
+      colorizer.enable = true;
       nvim-tree.enable = true;
       rainbow-delimiters.enable = true;
       toggleterm = {

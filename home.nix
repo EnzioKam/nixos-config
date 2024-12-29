@@ -87,13 +87,12 @@ in {
   catppuccin = {
     accent = "mauve";
     flavor = "mocha";
-    pointerCursor.enable = true;
+    cursors.enable = true;
+    gtk.icon.enable = true;
   };
 
   gtk = {
     enable = true;
-    catppuccin.icon.enable = true;
-
     theme = {
       name = "Colloid-Purple-Dark-Catppuccin";
       package = pkgs.colloid-gtk-theme.override {

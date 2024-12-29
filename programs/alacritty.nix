@@ -1,7 +1,9 @@
 {
+
+  catppuccin.alacritty.enable = true;
+
   programs.alacritty = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       # env.TERM = "alacritty";
       keyboard.bindings = [{

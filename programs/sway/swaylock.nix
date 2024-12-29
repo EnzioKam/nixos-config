@@ -1,7 +1,6 @@
 {
-  programs.swaylock = {
-    enable = true;
-    catppuccin.enable = true;
-  };
+  catppuccin.swaylock.enable = true;
+
+  programs.swaylock.enable = true;
 }
 
