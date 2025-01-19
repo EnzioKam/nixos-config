@@ -44,6 +44,7 @@ in {
     noto-fonts-cjk-serif
     noto-fonts-emoji
     openfortivpn
+    openfortivpn-webview
     pavucontrol
     pfetch-rs
     polkit_gnome
