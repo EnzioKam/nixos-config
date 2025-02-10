@@ -7,14 +7,22 @@
 {
   imports = [ ./hardware ];
 
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    # "nixos-config=/etc/nixos/configuration.nix"
-    "nixos-config=/home/enziokam/.config/home-manager/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
+  nix = {
+    nixPath = [
+      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+      # "nixos-config=/etc/nixos/configuration.nix"
+      "nixos-config=/home/enziokam/.config/home-manager/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = [ "https://catppuccin.cachix.org" ];
+      trusted-public-keys = [
+        "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
+      ];
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -94,6 +102,13 @@
 
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "enziokam";
+  };
+  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
 
   programs.auto-cpufreq = {
     enable = true;
