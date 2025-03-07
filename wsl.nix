@@ -1,8 +1,9 @@
-{ config, pkgs, wdisplays-src, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./programs/cli.nix
+    ./programs/helix.nix
     ./programs/nvim/nixvim.nix
     ./programs/nvim/plugins.nix
     ./programs/nvim/keymaps.nix
