@@ -8,7 +8,7 @@
         exec sway
       fi
     '';
-    initExtra = ''
+    initContent = ''
       function osc7-pwd() {
         emulate -L zsh # also sets localoptions for us
         setopt extendedglob

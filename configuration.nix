@@ -104,13 +104,6 @@
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
 
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    user = "enziokam";
-  };
-  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
-
   programs.auto-cpufreq = {
     enable = true;
     settings = {

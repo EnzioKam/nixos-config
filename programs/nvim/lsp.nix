@@ -32,12 +32,12 @@
       fromVscode = [ { } ];
     };
 
-    nvim-jdtls = let home = "${config.home.homeDirectory}";
+    jdtls = let home = "${config.home.homeDirectory}";
     in {
       enable = true;
-      configuration = "${home}/.cache/jdtls/config";
-      data = "${home}/.cache/jdtls/workspace";
-      settings = {
+      # configuration = "${home}/.cache/jdtls/config";
+      # data = "${home}/.cache/jdtls/workspace";
+      settings.settings = {
         java = {
           signatureHelp = {
             enabled = true;

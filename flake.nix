@@ -35,10 +35,8 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      flake-modules = [
-        nixvim.homeManagerModules.nixvim
-        catppuccin.homeManagerModules.catppuccin
-      ];
+      flake-modules =
+        [ nixvim.homeManagerModules.nixvim catppuccin.homeModules.catppuccin ];
     in {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
