@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   programs.helix = {
     enable = true;
@@ -25,11 +23,28 @@
         mode.select = "SELECT";
       };
     };
-    languages.language = [{
-      name = "nix";
-      auto-format = true;
-      formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-    }];
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "nixfmt";
+        language-servers = [ "nixd" ];
+      }
+      {
+        name = "markdown";
+        auto-format = true;
+        formatter = {
+          command = "mdformat";
+          args = [ "-" ];
+        };
+        language-servers = [ "marksman" ];
+      }
+      {
+        name = "python";
+        auto-format = true;
+        language-servers = [ "ruff" ];
+      }
+    ];
     themes = {
       catppuccin_mocha_transparent = {
         "inherits" = "catppuccin_mocha";
