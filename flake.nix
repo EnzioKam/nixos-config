@@ -11,10 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim/";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -29,14 +29,13 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, catppuccin, auto-cpufreq
-    , wdisplays-src, ... }:
+  outputs =
+    { nixpkgs, home-manager, catppuccin, auto-cpufreq, wdisplays-src, ... }:
 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      flake-modules =
-        [ nixvim.homeManagerModules.nixvim catppuccin.homeModules.catppuccin ];
+      flake-modules = [ catppuccin.homeModules.catppuccin ];
     in {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {

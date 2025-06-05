@@ -24,6 +24,7 @@
     shellAliases = let home = "${config.home.homeDirectory}";
     in {
       mirror = "wl-mirror eDP-1 & exit";
+      helix = "hx";
       hmu =
         "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
       nrs =

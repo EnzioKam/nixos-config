@@ -4,9 +4,9 @@
   imports = [
     ./programs/cli.nix
     ./programs/helix.nix
-    ./programs/nvim/nixvim.nix
-    ./programs/nvim/plugins.nix
-    ./programs/nvim/keymaps.nix
+    # ./programs/nvim/nixvim.nix
+    # ./programs/nvim/plugins.nix
+    # ./programs/nvim/keymaps.nix
   ];
 
   home.username = "enziokam";

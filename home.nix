@@ -43,6 +43,7 @@ in {
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
+    neovim
     openfortivpn
     openfortivpn-webview
     pavucontrol

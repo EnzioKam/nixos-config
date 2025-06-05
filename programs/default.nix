@@ -9,7 +9,7 @@
     ./starship.nix
     ./zsh.nix
     ./firefox
-    ./nvim
+    # ./nvim
     ./rofi
     ./sway
   ];
