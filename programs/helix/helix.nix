@@ -44,6 +44,11 @@
         auto-format = true;
         language-servers = [ "ruff" ];
       }
+      {
+        name = "java";
+        auto-format = true;
+        language-servers = [ "jdtls" ];
+      }
     ];
     themes = {
       catppuccin_mocha_transparent = {
