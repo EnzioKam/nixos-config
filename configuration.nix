@@ -16,7 +16,10 @@
     ];
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       trusted-users = [ "enziokam" ];
       extra-substituters = [ "https://catppuccin.cachix.org" ];
       extra-trusted-public-keys = [
@@ -42,6 +45,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Enable Tailscale
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";
 
   # Enable bluetooth support
   hardware.bluetooth.enable = true;
@@ -126,7 +133,11 @@
     isNormalUser = true;
     description = "Enzio Kam Hai Hong";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
     # packages = with pkgs; [
     #  firefox
     #  thunderbird
@@ -202,12 +213,17 @@
       enable = true;
       enable32Bit = true;
     };
-    amdgpu = { initrd.enable = true; };
+    amdgpu = {
+      initrd.enable = true;
+    };
   };
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
     config.common.default = "*";
   };
 }
