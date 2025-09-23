@@ -5,22 +5,23 @@
 
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    # package = pkgs.rofi-wayland;
 
     theme = "${config.home.homeDirectory}/.config/rofi/catppucin-mocha.rasi";
 
-    /* theme = {
-       "*" = {
-         border-col = "#cdd6f4";
-         width = 900;
-         font = "DejaVuSansMono Nerd Font 12";
-       };
-       "window" = { height = 580; };
-       "listview" = {
-         columns = 3;
-         lines = 12;
-       };
-       };
+    /*
+      theme = {
+      "*" = {
+        border-col = "#cdd6f4";
+        width = 900;
+        font = "DejaVuSansMono Nerd Font 12";
+      };
+      "window" = { height = 580; };
+      "listview" = {
+        columns = 3;
+        lines = 12;
+      };
+      };
     */
 
     extraConfig = {
