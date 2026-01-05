@@ -154,7 +154,7 @@
     # wget
     at-spi2-atk
     dmidecode
-    glxinfo
+    mesa-demos
     libva-utils
     lm_sensors
     nvtopPackages.amd

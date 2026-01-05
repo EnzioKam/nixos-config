@@ -1,12 +1,22 @@
-{ config, pkgs, wdisplays-src, ... }:
+{
+  config,
+  pkgs,
+  wdisplays-src,
+  ...
+}:
 
 let
 
-  wdisplays_overlay = (self: super: {
-    wdisplays = super.wdisplays.overrideAttrs (old: { src = wdisplays-src; });
-  });
+  wdisplays_overlay = (
+    self: super: {
+      wdisplays = super.wdisplays.overrideAttrs (old: {
+        src = wdisplays-src;
+      });
+    }
+  );
 
-in {
+in
+{
 
   nixpkgs.overlays = [ wdisplays_overlay ];
 
@@ -32,7 +42,7 @@ in {
     glib
     file-roller
     gnumake
-    julia
+    # julia
     julia-mono
     libreoffice-fresh
     nerd-fonts.dejavu-sans-mono
@@ -42,7 +52,7 @@ in {
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     neovim
     openfortivpn
     openfortivpn-webview
@@ -58,10 +68,10 @@ in {
     unzip
     usbutils
     xdg-utils
-    xfce.exo
-    xfce.thunar
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
+    xfce4-exo
+    thunar
+    thunar-archive-plugin
+    thunar-volman
     zip
   ];
 
@@ -98,13 +108,20 @@ in {
     theme = {
       name = "Colloid-Purple-Dark-Catppuccin";
       package = pkgs.colloid-gtk-theme.override {
-        tweaks = [ "catppuccin" "black" ];
+        tweaks = [
+          "catppuccin"
+          "black"
+        ];
         themeVariants = [ "purple" ];
       };
     };
 
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = true; };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 
   xdg = {

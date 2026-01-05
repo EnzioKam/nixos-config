@@ -19,9 +19,15 @@
 
   programs.git = {
     enable = true;
-    userName = "EnzioKam";
-    userEmail = "enziokamhh@gmail.com";
-    delta.enable = true;
+    settings.user = {
+      name = "EnzioKam";
+      email = "enziokamhh@gmail.com";
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.java = {
