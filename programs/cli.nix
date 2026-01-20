@@ -6,6 +6,7 @@
     bottom.enable = true;
     fzf.enable = true;
     delta.enable = true;
+    zellij.enable = true;
   };
 
   programs.bat.enable = true;
@@ -33,5 +34,9 @@
   programs.java = {
     enable = true;
     package = pkgs.jdk21;
+  };
+
+  programs.zellij = {
+    enable = true;
   };
 }
