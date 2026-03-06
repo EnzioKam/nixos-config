@@ -64,7 +64,7 @@ in
     qpdfview
     ripgrep
     sysfsutils
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     unzip
     usbutils
     xdg-utils
