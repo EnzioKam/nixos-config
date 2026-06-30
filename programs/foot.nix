@@ -9,7 +9,7 @@
         font = "JuliaMono:size=14,FiraCode Nerd Font:size=14";
         pad = "15x15";
       };
-      colors = {
+      colors-dark = {
         alpha = 0.8;
         dim0 = "45475a";
         dim1 = "f38ba8";

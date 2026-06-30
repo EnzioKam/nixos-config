@@ -91,10 +91,19 @@ in
     XDG_CURRENT_DESKTOP = "sway";
   };
 
+  nix = {
+    package = pkgs.nix;
+    extraOptions = ''
+      experimental-features = nix-command flakes 
+    '';
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   catppuccin = {
+    enable = true;
+    autoEnable = false;
     cache.enable = true;
     accent = "mauve";
     flavor = "mocha";

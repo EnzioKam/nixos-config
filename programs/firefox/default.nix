@@ -19,8 +19,7 @@
         "browser.crashReports.unsubmittedCheck.enabled" = false;
         "browser.disableResetPrompt" = true;
         "browser.newtab.preload" = false;
-        "browser.newtabpage.activity-stream.section.highlights.includePocket" =
-          false;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
         "browser.newtabpage.enhanced" = false;
         "browser.newtabpage.introShown" = true;
         "browser.safebrowsing.appRepURL" = "";
@@ -97,8 +96,7 @@
         "privacy.trackingprotection.pbmode.enabled" = true;
         "privacy.usercontext.about_newtab_segregation.enabled" = true;
         "security.ssl.disable_session_identifiers" = true;
-        "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" =
-          false;
+        "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
         "signon.autofillForms" = false;
         "toolkit.telemetry.archive.enabled" = false;
         "toolkit.telemetry.bhrPing.enabled" = false;
@@ -124,8 +122,7 @@
         "layout.css.color-mix.enabled" = true;
         "layout.css.backdrop-filter.enabled" = true;
         "browser.compactmode.show" = true;
-        "browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar" =
-          false;
+        "browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar" = false;
         "layout.css.has-selector.enabled" = true;
         "userChrome.tab.connect_to_window" = true;
         "userChrome.tab.color_like_toolbar" = true;
@@ -155,4 +152,3 @@
     };
   };
 }
-
