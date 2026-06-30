@@ -54,8 +54,6 @@ in
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
     neovim
-    openfortivpn
-    openfortivpn-webview
     pavucontrol
     pfetch-rs
     polkit_gnome
@@ -97,6 +95,7 @@ in
   programs.home-manager.enable = true;
 
   catppuccin = {
+    cache.enable = true;
     accent = "mauve";
     flavor = "mocha";
     cursors.enable = true;
