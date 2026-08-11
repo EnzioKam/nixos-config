@@ -26,6 +26,7 @@ in
   # paths it should manage.
   home.username = "enziokam";
   home.homeDirectory = "/home/enziokam";
+  home.pointerCursor.enable = true;
 
   fonts.fontconfig.enable = true;
 
@@ -60,9 +61,10 @@ in
     powertop
     python311
     qpdfview
+    remmina
     ripgrep
     sysfsutils
-    texlive.combined.scheme-full
+    texliveFull
     unzip
     usbutils
     xdg-utils
