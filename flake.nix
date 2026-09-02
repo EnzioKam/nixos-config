@@ -22,32 +22,36 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    wdisplays-src = {
-      url = "github:artizirk/wdisplays";
-      flake = false;
-    };
   };
 
   outputs =
-    { nixpkgs, home-manager, catppuccin, auto-cpufreq, wdisplays-src, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      catppuccin,
+      auto-cpufreq,
+      ...
+    }:
 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       flake-modules = [ catppuccin.homeModules.catppuccin ];
-    in {
+    in
+    {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix auto-cpufreq.nixosModules.default ];
+          modules = [
+            ./configuration.nix
+            auto-cpufreq.nixosModules.default
+          ];
         };
       };
 
       homeConfigurations = {
         "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit wdisplays-src; };
           modules = flake-modules ++ [ ./home.nix ];
         };
 

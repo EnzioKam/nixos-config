@@ -1,24 +1,10 @@
 {
   config,
   pkgs,
-  wdisplays-src,
   ...
 }:
 
-let
-
-  wdisplays_overlay = (
-    self: super: {
-      wdisplays = super.wdisplays.overrideAttrs (old: {
-        src = wdisplays-src;
-      });
-    }
-  );
-
-in
 {
-
-  nixpkgs.overlays = [ wdisplays_overlay ];
 
   imports = [ ./programs ];
 
