@@ -11,17 +11,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixvim = {
-    #   url = "github:nix-community/nixvim/";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     catppuccin.url = "github:catppuccin/nix";
 
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
   };
 
   outputs =
@@ -30,6 +28,7 @@
       home-manager,
       catppuccin,
       auto-cpufreq,
+      nix-cachyos-kernel,
       ...
     }:
 
@@ -50,8 +49,16 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            (
+              { pkgs, ... }:
+              {
+                nixpkgs.overlays = [
+                  # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
+                  nix-cachyos-kernel.overlays.pinned
+                ];
+              }
+            )
             ./desktop/configuration.nix
-            auto-cpufreq.nixosModules.default
           ];
         };
       };
