@@ -6,7 +6,10 @@
 
 {
 
-  imports = [ ../programs ];
+  imports = [
+    ../programs/common
+    ../programs/desktop
+  ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -122,7 +125,6 @@
 
   xdg = {
     enable = true;
-    configFile."xfce4/helpers.rc".text = "TerminalEmulator=footclient";
     systemDirs.data = [
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
