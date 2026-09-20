@@ -34,6 +34,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
+  boot.blacklistedKernelModules = [ "nct6683" ];
   boot.kernelModules = [ "nct6687d" ];
 
   fileSystems."/home/enziokam/samsung860" = {
