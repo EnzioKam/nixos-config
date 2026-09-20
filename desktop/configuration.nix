@@ -36,6 +36,7 @@
   boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
   boot.blacklistedKernelModules = [ "nct6683" ];
   boot.kernelModules = [ "nct6687" ];
+  boot.extraModprobeConfig = "options nct6687 fanconfig=msi_alt1 msi_fan_brute_force=1";
 
   fileSystems."/home/enziokam/samsung860" = {
     options = [
@@ -109,6 +110,9 @@
 
   services.fwupd.enable = true;
   services.flatpak.enable = true;
+  services.udev.extraRules = ''
+    SUBSYSTEM=="input", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="3106", MODE="0660", GROUP="input"
+  '';
 
   programs.zsh.enable = true;
 
