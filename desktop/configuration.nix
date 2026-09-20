@@ -33,6 +33,8 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
+  boot.kernelModules = [ "nct6687d" ];
 
   fileSystems."/home/enziokam/samsung860" = {
     options = [
@@ -105,6 +107,7 @@
   # services.libinput.enable = true;
 
   services.fwupd.enable = true;
+  services.flatpak.enable = true;
 
   programs.zsh.enable = true;
 
@@ -133,8 +136,13 @@
   environment.systemPackages = with pkgs; [
     #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #   wget
-    protonplus
+    (catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "mauve" ];
+    })
     kdePackages.partitionmanager
+    lm_sensors
+    protonplus
   ];
 
   programs.steam.enable = true;
