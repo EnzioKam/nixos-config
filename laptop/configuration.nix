@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix = {
     nixPath = [

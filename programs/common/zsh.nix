@@ -4,11 +4,6 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-    #loginExtra = ''
-    #  if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-    #    exec sway
-    #  fi
-    #'';
     initContent = ''
       function osc7-pwd() {
         emulate -L zsh # also sets localoptions for us

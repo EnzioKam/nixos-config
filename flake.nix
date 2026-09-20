@@ -43,7 +43,7 @@
         nixos-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./laptop/configuration.nix
             auto-cpufreq.nixosModules.default
           ];
         };
@@ -59,7 +59,12 @@
       homeConfigurations = {
         "enziokam@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = flake-modules ++ [ ./home.nix ];
+          modules = flake-modules ++ [ ./laptop/home.nix ];
+        };
+
+        "enziokam@nixos-desktop" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = flake-modules ++ [ ./desktop/home.nix ];
         };
 
         "enziokam@DESKTOP-SABAJRC" = home-manager.lib.homeManagerConfiguration {

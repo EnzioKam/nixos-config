@@ -6,7 +6,7 @@
 
 {
 
-  imports = [ ./programs ];
+  imports = [ ../programs ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -20,44 +20,44 @@
   home.packages = with pkgs; [
     bashmount
     bc
-    blueman
+    # blueman
     brave
     clang-tools
     fd
     gcc
     gdb
     glib
-    file-roller
+    # file-roller
     gnumake
     # julia
     julia-mono
-    libreoffice-fresh
+    libreoffice
     nerd-fonts.dejavu-sans-mono
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
-    networkmanagerapplet
+    # networkmanagerapplet
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
     neovim
-    pavucontrol
+    # pavucontrol
     pfetch-rs
-    polkit_gnome
+    # polkit_gnome
     powertop
     python311
-    qpdfview
-    remmina
+    # qpdfview
+    # remmina
     ripgrep
     sysfsutils
     texliveFull
     unzip
     usbutils
     xdg-utils
-    xfce4-exo
-    thunar
-    thunar-archive-plugin
-    thunar-volman
+    #xfce4-exo
+    #thunar
+    #thunar-archive-plugin
+    #thunar-volman
     zip
   ];
 
@@ -76,7 +76,7 @@
     VISUAL = "nvim";
     PF_INFO = "ascii title os host kernel uptime pkgs memory wm shell palette";
     WOBSOCK = "$XDG_RUNTIME_DIR/wob.sock";
-    XDG_CURRENT_DESKTOP = "sway";
+    XDG_CURRENT_DESKTOP = "KDE";
   };
 
   nix = {
