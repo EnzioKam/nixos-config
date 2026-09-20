@@ -35,7 +35,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
   boot.blacklistedKernelModules = [ "nct6683" ];
-  boot.kernelModules = [ "nct6687d" ];
+  boot.kernelModules = [ "nct6687" ];
 
   fileSystems."/home/enziokam/samsung860" = {
     options = [
@@ -142,13 +142,16 @@
       accents = [ "mauve" ];
     })
     kdePackages.partitionmanager
+    lact
     lm_sensors
     protonplus
   ];
 
   programs.steam.enable = true;
   programs.gamemode.enable = true;
-  services.lact.enable = false;
+  # services.lact.enable = false;
+  systemd.packages = with pkgs; [ lact ];
+  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   hardware.amdgpu.overdrive.enable = true;
   programs.coolercontrol.enable = true;
 
