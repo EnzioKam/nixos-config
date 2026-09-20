@@ -25,8 +25,6 @@
         mirror = "wl-mirror eDP-1 & exit";
         helix = "hx";
         vim = "hx";
-        hmu = "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
-        nrs = "sudo nixos-rebuild switch --flake '${home}/.config/home-manager/#nixos-desktop'";
       };
     prezto = {
       enable = true;
