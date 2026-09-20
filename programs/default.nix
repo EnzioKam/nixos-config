@@ -1,6 +1,6 @@
 {
   imports = [
-    ./alacritty.nix
+    # ./alacritty.nix
     ./cli.nix
     ./foot.nix
     ./misc.nix
@@ -11,6 +11,6 @@
     ./helix
     # ./nvim
     ./rofi
-    ./sway
+    # ./sway
   ];
 }

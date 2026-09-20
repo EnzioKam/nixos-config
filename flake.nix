@@ -40,10 +40,17 @@
     in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        nixos-laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
+            auto-cpufreq.nixosModules.default
+          ];
+        };
+        nixos-desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./desktop/configuration.nix
             auto-cpufreq.nixosModules.default
           ];
         };
