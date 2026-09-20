@@ -24,6 +24,11 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home/enziokam/samsung860" =
+    { device = "/dev/disk/by-uuid/5be34a71-b268-49a7-b278-1f5d8e8a6462";
+      fsType = "btrfs";
+    };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

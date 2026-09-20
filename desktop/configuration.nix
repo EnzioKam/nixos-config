@@ -34,6 +34,13 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  fileSystems."/home/enziokam/samsung860" = {
+    options = [
+      "nofail" # Prevents boot failure if the drive is disconnected
+      "defaults"
+    ];
+  };
+
   networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -112,7 +119,6 @@
     ];
     packages = with pkgs; [
       kdePackages.kate
-      #  thunderbird
     ];
   };
 
@@ -128,12 +134,10 @@
     #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #   wget
     protonplus
-    partition-manager
+    kdePackages.partitionmanager
   ];
 
-  programs.steam = {
-    enable = true;
-  }
+  programs.steam.enable = true;
   programs.gamemode.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
