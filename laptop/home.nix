@@ -34,7 +34,7 @@
     gnumake
     # julia
     julia-mono
-    libreoffice-fresh
+    libreoffice
     nerd-fonts.dejavu-sans-mono
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
