@@ -2,7 +2,12 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -122,6 +127,16 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="input", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="3106", MODE="0660", GROUP="input"
   '';
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "enziokam";
+    group = "users";
+    extraFlags = [ "--no-default-folder" ];
+    guiAddress = "0.0.0.0:8384";
+  };
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+  systemd.services.syncthing.wantedBy = lib.mkForce [ ];
 
   programs.zsh.enable = true;
 
