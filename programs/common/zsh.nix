@@ -4,11 +4,6 @@
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
-    loginExtra = ''
-      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-        exec sway
-      fi
-    '';
     initContent = ''
       function osc7-pwd() {
         emulate -L zsh # also sets localoptions for us
@@ -30,8 +25,6 @@
         mirror = "wl-mirror eDP-1 & exit";
         helix = "hx";
         vim = "hx";
-        hmu = "home-manager switch --flake '${home}/.config/home-manager/#enziokam@nixos'";
-        nrs = "sudo nixos-rebuild switch --flake '${home}/.config/home-manager/#nixos'";
       };
     prezto = {
       enable = true;

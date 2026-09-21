@@ -1,10 +1,4 @@
 {
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
-  };
-
   services.kanshi.enable = true;
 
   services.fnott = {

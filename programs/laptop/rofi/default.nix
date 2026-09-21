@@ -22,7 +22,7 @@
       };
     */
 
-    extraConfig = {
+    settings = {
       modi = "run,drun,window";
       show-icons = true;
       terminal = "footclient";

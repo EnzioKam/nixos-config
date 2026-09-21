@@ -6,7 +6,7 @@
 
  .browserContainer > findbar {
     -moz-box-ordinal-group: 0;
-    position: absolute !important;
+    position: fixed !important;
     right: 1em;
     left: 1em;
     width: 55%;
