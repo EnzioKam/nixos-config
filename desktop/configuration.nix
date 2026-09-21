@@ -178,8 +178,14 @@
     protonplus
   ];
 
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    extest.enable = true;
+  };
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
   # services.lact.enable = false;
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
