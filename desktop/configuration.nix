@@ -34,8 +34,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
   boot.blacklistedKernelModules = [ "nct6683" ];
   boot.kernelModules = [ "nct6687" ];
@@ -151,6 +151,8 @@
     kdePackages.partitionmanager
     lact
     lm_sensors
+    mangohud
+    mangojuice
     protonplus
   ];
 
