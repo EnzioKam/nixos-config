@@ -73,11 +73,6 @@
           inherit pkgs;
           modules = flake-modules ++ [ ./desktop/home.nix ];
         };
-
-        "enziokam@DESKTOP-SABAJRC" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = flake-modules ++ [ ./wsl.nix ];
-        };
       };
     };
 }

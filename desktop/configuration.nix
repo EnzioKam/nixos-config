@@ -36,9 +36,15 @@
   # Use latest kernel.
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-  boot.extraModulePackages = [ config.boot.kernelPackages.nct6687d ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    nct6687d
+    zenergy
+  ];
   boot.blacklistedKernelModules = [ "nct6683" ];
-  boot.kernelModules = [ "nct6687" ];
+  boot.kernelModules = [
+    "nct6687"
+    "zenergy"
+  ];
   boot.extraModprobeConfig = "options nct6687 fanconfig=msi_alt1 msi_fan_brute_force=1";
 
   fileSystems."/home/enziokam/samsung860" = {
