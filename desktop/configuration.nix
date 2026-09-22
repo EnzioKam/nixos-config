@@ -67,24 +67,42 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Singapore";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_SG.UTF-8";
+  i18n = {
+    defaultLocale = "en_SG.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_SG.UTF-8";
-    LC_IDENTIFICATION = "en_SG.UTF-8";
-    LC_MEASUREMENT = "en_SG.UTF-8";
-    LC_MONETARY = "en_SG.UTF-8";
-    LC_NAME = "en_SG.UTF-8";
-    LC_NUMERIC = "en_SG.UTF-8";
-    LC_PAPER = "en_SG.UTF-8";
-    LC_TELEPHONE = "en_SG.UTF-8";
-    LC_TIME = "en_SG.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_SG.UTF-8";
+      LC_IDENTIFICATION = "en_SG.UTF-8";
+      LC_MEASUREMENT = "en_SG.UTF-8";
+      LC_MONETARY = "en_SG.UTF-8";
+      LC_NAME = "en_SG.UTF-8";
+      LC_NUMERIC = "en_SG.UTF-8";
+      LC_PAPER = "en_SG.UTF-8";
+      LC_TELEPHONE = "en_SG.UTF-8";
+      LC_TIME = "en_SG.UTF-8";
+    };
+
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        addons = with pkgs; [
+          kdePackages.fcitx5-qt
+          kdePackages.fcitx5-chinese-addons
+        ];
+      };
+    };
   };
 
   # Enable the X11 windowing system.
@@ -124,9 +142,6 @@
 
   services.fwupd.enable = true;
   services.flatpak.enable = true;
-  services.udev.extraRules = ''
-    SUBSYSTEM=="input", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="3106", MODE="0660", GROUP="input"
-  '';
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
@@ -170,6 +185,7 @@
       flavour = [ "mocha" ];
       accents = [ "mauve" ];
     })
+    kdePackages.fcitx5-configtool
     kdePackages.partitionmanager
     lact
     lm_sensors
@@ -185,11 +201,13 @@
   programs.gamemode = {
     enable = true;
     enableRenice = true;
+    settings.general.renice = 10;
   };
   # services.lact.enable = false;
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   hardware.amdgpu.overdrive.enable = true;
+  hardware.steam-hardware.enable = true;
   programs.coolercontrol.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
