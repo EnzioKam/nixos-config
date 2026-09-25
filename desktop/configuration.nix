@@ -191,7 +191,6 @@
     lm_sensors
     mangohud
     mangojuice
-    openrgb
     protonplus
   ];
 
@@ -204,13 +203,14 @@
     enableRenice = true;
     settings.general.renice = 10;
   };
-  # services.lact.enable = false;
   systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
+  systemd.services.lactd = {
+    path = [ "/run/wrappers" ];
+    wantedBy = [ "multi-user.target" ];
+  };
   hardware.amdgpu.overdrive.enable = true;
   hardware.steam-hardware.enable = true;
   programs.coolercontrol.enable = true;
-  services.hardware.openrgb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

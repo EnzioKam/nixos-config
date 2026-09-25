@@ -116,6 +116,7 @@
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
     ];
+    configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
   };
 
 }
