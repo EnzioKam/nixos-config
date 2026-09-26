@@ -201,7 +201,13 @@
   programs.gamemode = {
     enable = true;
     enableRenice = true;
-    settings.general.renice = 10;
+    settings = {
+      general.renice = 10;
+      custom = {
+        start = "powerprofilesctl set performance";
+        end = "powerprofilesctl set powersave";
+      };
+    };
   };
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd = {
@@ -210,6 +216,10 @@
   };
   hardware.amdgpu.overdrive.enable = true;
   hardware.steam-hardware.enable = true;
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0110", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+    KERNEL=="hidraw*", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="11d9|120a", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
   programs.coolercontrol.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
