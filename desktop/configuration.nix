@@ -191,6 +191,7 @@
     lm_sensors
     mangohud
     mangojuice
+    naps2
     protonplus
   ];
 
@@ -203,10 +204,6 @@
     enableRenice = true;
     settings = {
       general.renice = 10;
-      custom = {
-        start = "powerprofilesctl set performance";
-        end = "powerprofilesctl set powersave";
-      };
     };
   };
   systemd.packages = with pkgs; [ lact ];
