@@ -30,6 +30,7 @@
     gdb
     glib
     gnumake
+    haruna
     julia-mono
     libreoffice
     nerd-fonts.dejavu-sans-mono

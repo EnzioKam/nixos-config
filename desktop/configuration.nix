@@ -16,14 +16,13 @@
   ];
 
   nix = {
-    nixPath = [
-      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-      # "nixos-config=/etc/nixos/configuration.nix"
-      "nixos-config=/home/enziokam/.config/home-manager/desktop/configuration.nix"
-      "/nix/var/nix/profiles/per-user/root/channels"
-    ];
-
     settings = {
+      nix-path = [
+        "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+        # "nixos-config=/etc/nixos/configuration.nix"
+        "nixos-config=/home/enziokam/.config/home-manager/desktop/configuration.nix"
+        "/nix/var/nix/profiles/per-user/root/channels"
+      ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -185,6 +184,7 @@
       flavour = [ "mocha" ];
       accents = [ "mauve" ];
     })
+    amdgpu_top
     kdePackages.fcitx5-configtool
     kdePackages.partitionmanager
     lact
