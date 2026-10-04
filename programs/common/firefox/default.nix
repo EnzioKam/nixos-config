@@ -145,6 +145,9 @@
         "userChrome.tab.photon_like_contextline" = false;
         "userChrome.rounding.square_tab" = false;
       };
+      preConfig = ''
+        @import url("chrome/firefox-UI-Fix/user.js");
+      '';
       userChrome = ''
         @import url("Firefox-UI-Fix/css/leptonChrome.css");
         ${builtins.readFile ./chrome/findbar.css}

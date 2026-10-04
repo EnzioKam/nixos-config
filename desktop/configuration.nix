@@ -59,7 +59,7 @@
   };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -71,6 +71,11 @@
     plugins = with pkgs; [
       networkmanager-openconnect
     ];
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
   };
 
   # Set your time zone.
@@ -193,6 +198,12 @@
     mangojuice
     naps2
     protonplus
+  ];
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    kwallet
+    kwalletmanager
   ];
 
   programs.steam = {
