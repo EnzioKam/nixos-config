@@ -20,6 +20,11 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +34,7 @@
       catppuccin,
       auto-cpufreq,
       nix-cachyos-kernel,
+      winapps,
       ...
     }:
 
@@ -49,15 +55,25 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            (
-              { pkgs, ... }:
-              {
-                nixpkgs.overlays = [
-                  # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-                  nix-cachyos-kernel.overlays.pinned
-                ];
-              }
-            )
+            {
+              nixpkgs.overlays = [
+                # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
+                nix-cachyos-kernel.overlays.pinned
+              ];
+            }
+            {
+              environment.systemPackages = [
+                winapps.packages."${system}".winapps
+                winapps.packages."${system}".winapps-launcher # optional
+              ];
+
+              # set up binary cache (optional)
+              nix.settings = {
+                substituters = [ "https://winapps.cachix.org/" ];
+                trusted-public-keys = [ "winapps.cachix.org-1:HI82jWrXZsQRar/PChgIx1unmuEsiQMQq+zt05CD36g=" ];
+                trusted-users = [ "enziokam" ]; # replace with your username
+              };
+            }
             ./desktop/configuration.nix
           ];
         };
