@@ -165,9 +165,10 @@
     description = "Enzio Kam";
     shell = pkgs.zsh;
     extraGroups = [
+      "gamemode"
+      "kvm"
       "networkmanager"
       "wheel"
-      "gamemode"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -197,13 +198,12 @@
     mangohud
     mangojuice
     naps2
+    podman-compose
     protonplus
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa
-    kwallet
-    kwalletmanager
   ];
 
   programs.steam = {
@@ -229,6 +229,12 @@
     KERNEL=="hidraw*", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="11d9|120a", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
   programs.coolercontrol.enable = true;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
