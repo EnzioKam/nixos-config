@@ -191,9 +191,11 @@
       accents = [ "mauve" ];
     })
     amdgpu_top
+    freerdp
     kdePackages.fcitx5-configtool
     kdePackages.partitionmanager
     lact
+    libva-utils
     lm_sensors
     mangohud
     mangojuice
