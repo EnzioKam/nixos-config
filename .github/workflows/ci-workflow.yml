@@ -1,0 +1,7 @@
+name: NixOS Builder
+on: push
+jobs:
+  checks:
+    uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v27
+    secrets:
+      nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
