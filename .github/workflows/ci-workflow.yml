@@ -5,3 +5,5 @@ jobs:
     uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v27
     secrets:
       nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
+    with:
+      filter_builds: '.top_attr == "checks"'
