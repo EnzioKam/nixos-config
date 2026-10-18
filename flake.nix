@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
 
     winapps = {
@@ -33,7 +33,7 @@
       home-manager,
       catppuccin,
       auto-cpufreq,
-      nix-cachyos-kernel,
+      # nix-cachyos-kernel,
       winapps,
       ...
     }:
@@ -55,12 +55,12 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            {
-              nixpkgs.overlays = [
-                # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-                nix-cachyos-kernel.overlays.pinned
-              ];
-            }
+            # {
+            #   nixpkgs.overlays = [
+            #     # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
+            #     nix-cachyos-kernel.overlays.pinned
+            #   ];
+            # }
             {
               environment.systemPackages = [
                 winapps.packages."${system}".winapps
