@@ -6,4 +6,4 @@ jobs:
     secrets:
       nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
     with:
-      filter_builds: '.top_attr == "packages"'
+      filter_builds: '.top_attr == "packages" and .attr == "cachyos-kernel"'

@@ -87,6 +87,7 @@
         laptop-system = self.nixosConfigurations.nixos-laptop.config.system.build.toplevel;
         desktop-home = self.homeConfigurations."enziokam@nixos-desktop".activationPackage;
         laptop-home = self.homeConfigurations."enziokam@nixos".activationPackage;
+        cachyos-kernel = nix-cachyos-kernel.legacyPackages.${system}.linuxPackages-cachyos-latest.kernel;
       };
     };
 }
