@@ -28,9 +28,6 @@
         "flakes"
       ];
       trusted-users = [ "enziokam" ];
-      # Disable while binary cache is down
-      # substituters = [ "https://attic.xuyh0120.win/lantian" ];
-      # trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
       substituters = [ "https://enziokam.cachix.org" ];
       trusted-public-keys = [ "enziokam.cachix.org-1:7i1bmD6zAFIVD2Gv4urHHk7JNB2CKFeGibUrA1pgiL4=" ];
     };
@@ -41,8 +38,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     nct6687d
     zenergy
