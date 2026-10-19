@@ -9,6 +9,14 @@
   ...
 }:
 
+let
+  zenergy-fixed = config.boot.kernelPackages.zenergy.overrideAttrs (old: {
+    postInstall = (old.postInstall or "") + ''
+      rm -f $out/lib/modules/*/modules.*
+    '';
+  });
+in
+
 {
   imports = [
     # Include the results of the hardware scan.
@@ -42,7 +50,7 @@
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     nct6687d
-    zenergy
+    zenergy-fixed
   ];
   boot.blacklistedKernelModules = [ "nct6683" ];
   boot.kernelModules = [

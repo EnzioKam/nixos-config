@@ -1,5 +1,5 @@
 name: NixOS Builder
-on: push
+on: workflow_dispatch
 jobs:
   checks:
     uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v27
