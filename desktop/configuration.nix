@@ -217,6 +217,10 @@ in
     elisa
   ];
 
+  environment.shellAliases = {
+    rdpwin = "xfreerdp /v:127.0.0.1:3389 /scale:180 +dynamic-resolution";
+  };
+
   programs.steam = {
     enable = true;
     extest.enable = true;
