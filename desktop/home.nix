@@ -25,6 +25,7 @@
     bashmount
     bc
     brave
+    calibre
     clang-tools
     fd
     gcc

@@ -9,14 +9,6 @@
   ...
 }:
 
-let
-  zenergy-fixed = config.boot.kernelPackages.zenergy.overrideAttrs (old: {
-    postInstall = (old.postInstall or "") + ''
-      rm -f $out/lib/modules/*/modules.*
-    '';
-  });
-in
-
 {
   imports = [
     # Include the results of the hardware scan.
@@ -36,8 +28,14 @@ in
         "flakes"
       ];
       trusted-users = [ "enziokam" ];
-      substituters = [ "https://enziokam.cachix.org" ];
-      trusted-public-keys = [ "enziokam.cachix.org-1:7i1bmD6zAFIVD2Gv4urHHk7JNB2CKFeGibUrA1pgiL4=" ];
+      substituters = [
+        "https://enziokam.cachix.org"
+        "https://cache.lantian.pub/lantian"
+      ];
+      trusted-public-keys = [
+        "enziokam.cachix.org-1:7i1bmD6zAFIVD2Gv4urHHk7JNB2CKFeGibUrA1pgiL4="
+        "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
+      ];
     };
   };
 
@@ -50,7 +48,7 @@ in
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     nct6687d
-    zenergy-fixed
+    zenergy
   ];
   boot.blacklistedKernelModules = [ "nct6683" ];
   boot.kernelModules = [
@@ -208,7 +206,7 @@ in
     lm_sensors
     mangohud
     mangojuice
-    naps2
+    # naps2
     podman-compose
     protonplus
   ];
