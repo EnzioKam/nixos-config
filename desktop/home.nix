@@ -21,6 +21,7 @@
 
   # Packages that should be installed to the user profile
   home.packages = with pkgs; [
+    antigravity-acp
     antimicrox
     bashmount
     bc
@@ -52,6 +53,7 @@
     unzip
     usbutils
     xdg-utils
+    zed-editor
     zip
   ];
 
